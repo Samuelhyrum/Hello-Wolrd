@@ -1,4 +1,4 @@
-O que eu vou aprender na Trybe:
+O que eu vou aprender na Trybe
 
 - Unix
 - Bash
@@ -6,3 +6,7 @@ O que eu vou aprender na Trybe:
 HTML
 CSS
 -NodeJs
+-Front-end
+-Back-end
+-Java
+
