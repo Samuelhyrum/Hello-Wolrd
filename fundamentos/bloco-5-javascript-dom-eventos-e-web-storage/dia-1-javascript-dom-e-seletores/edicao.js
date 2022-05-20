@@ -1,0 +1,1 @@
+document.getElementsByClassName("paragrafo")[1].innerText= " Me vejo daqui a 2 anos tentando ser melhor a cada código, a cada aprendizado";
