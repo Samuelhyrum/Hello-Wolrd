@@ -16,4 +16,10 @@ document.getElementsByTagName("h1")[0].innerText = "Quarta task em pleno sabadã
 let p = document.getElementsByTagName("p")[0].innerText;
 console.log(p.toUpperCase());
 
+//Sexta task
+let x = document.getElementsByClassName("paragrafo");
+
+for(index=0; index<x.length; index+=1){
+    console.log(x[index]);
+}
 
