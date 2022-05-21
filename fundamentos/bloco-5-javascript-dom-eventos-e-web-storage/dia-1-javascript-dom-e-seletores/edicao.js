@@ -10,6 +10,10 @@ let center = document.getElementsByClassName("center-content")
 center[0].style.backgroundColor = "white";
 
 //Quarta task
+document.getElementsByTagName("h1")[0].innerText = "Quarta task em pleno sabadão";
 
+//Quinta task
+let p = document.getElementsByTagName("p")[0].innerText;
+console.log(p.toUpperCase());
 
 
