@@ -39,6 +39,9 @@ let Painho = document.querySelector('#primeiroFilhoDoFilho');
 let hijo = document.createElement('section');
 Painho.appendChild(hijo);
 
+//Task 12 
+hijo.parentNode.parentNode.nextElementSibling;
+
 
 
 
