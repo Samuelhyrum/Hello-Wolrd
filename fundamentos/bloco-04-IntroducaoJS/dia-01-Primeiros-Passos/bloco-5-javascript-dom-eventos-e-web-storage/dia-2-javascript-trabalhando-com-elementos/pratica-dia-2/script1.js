@@ -63,6 +63,15 @@ for(let i =0; i<numeros.length;i+=1){
     lista.appendChild(novoItem);
 }
 
+//Task 9
+let h3 = document.createElement('h3');
+main.appendChild(h3);
+let h3t = document.createElement('h3');
+main.appendChild(h3t);
+let h = document.createElement('h3');
+main.appendChild(h);
+
+
 
 
 
