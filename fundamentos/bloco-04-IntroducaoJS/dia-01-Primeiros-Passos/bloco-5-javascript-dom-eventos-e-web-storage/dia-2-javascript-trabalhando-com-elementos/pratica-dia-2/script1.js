@@ -52,15 +52,16 @@ let ul = document.createElement('ul');
 section2.appendChild(ul);
 ul.className = "lista";
 
-let lista = document.querySelector('.lista');
+let listas = document.querySelector('.lista');
 
 for(let i =0; i<numeros.length;i+=1){
     let item = numeros[i];
 
     let novoItem =document.createElement('li');
     novoItem.innerText = item;
+    novoItem.className = "Itens";
     
-    lista.appendChild(novoItem);
+    listas.appendChild(novoItem);
 }
 
 //Task 9
@@ -88,7 +89,9 @@ h3t.className = "description";
 //Task 14
 section.style.backgroundColor = "green";
 
-
+//Task 15
+numeros.splice(8,9);
+console.log(numeros);
 
 
 
