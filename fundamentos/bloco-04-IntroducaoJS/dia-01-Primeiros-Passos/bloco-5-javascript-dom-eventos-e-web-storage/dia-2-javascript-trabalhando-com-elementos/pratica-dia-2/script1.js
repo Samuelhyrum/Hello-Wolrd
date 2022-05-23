@@ -18,3 +18,8 @@ section.className = "center-content";
 let paragrafo = document.createElement('p');
 section.appendChild(paragrafo);
 paragrafo.innerText = "Primeiro Texto";
+
+//Task 5 
+let section1 = document.createElement('section');
+main.appendChild(section1);
+section.className = "left-content";
