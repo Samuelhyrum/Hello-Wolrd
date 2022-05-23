@@ -71,6 +71,9 @@ main.appendChild(h3t);
 let h = document.createElement('h3');
 main.appendChild(h);
 
+//Task 10 
+h1.className = "title";
+
 
 
 
