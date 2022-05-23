@@ -13,3 +13,8 @@ main.className = "main-content";
 let section = document.createElement('section');
 main.appendChild(section);
 section.className = "center-content";
+
+//Task 4 
+let paragrafo = document.createElement('p');
+section.appendChild(paragrafo);
+paragrafo.innerText = "Primeiro Texto";
