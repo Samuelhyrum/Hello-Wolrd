@@ -10,3 +10,6 @@ body.appendChild(main);
 main.className = "main-content";
 
 //Task 3 
+let section = document.createElement('section');
+main.appendChild(section);
+section.className = "center-content";
