@@ -22,9 +22,21 @@ paragrafo.innerText = "Primeiro Texto";
 //Task 5 
 let section1 = document.createElement('section');
 main.appendChild(section1);
-section.className = "left-content";
+section1.className = "left-content";
 
 //Task 6 
 let section2 = document.createElement('section');
 main.appendChild(section2);
-section.className = "right-content";
+section2.className = "right-content";
+
+//Task 7 
+let imagem = document.createElement('img');
+section1.appendChild(imagem);
+imagem.src = "https://picsum.photos/200 ";
+
+
+
+
+
+
+
