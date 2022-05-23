@@ -23,3 +23,8 @@ paragrafo.innerText = "Primeiro Texto";
 let section1 = document.createElement('section');
 main.appendChild(section1);
 section.className = "left-content";
+
+//Task 6 
+let section2 = document.createElement('section');
+main.appendChild(section2);
+section.className = "right-content";
