@@ -74,6 +74,11 @@ main.appendChild(h);
 //Task 10 
 h1.className = "title";
 
+//Task 11
+h.className = "description";
+h3.className = "description";
+h3t.className = "description";
+
 
 
 
