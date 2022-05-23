@@ -80,8 +80,10 @@ h3.className = "description";
 h3t.className = "description";
 
 //Task 12 
-// main.removeChild(section1);
+main.removeChild(section1);
 
+//Task 13
+//margin-right: auto
 
 
 
