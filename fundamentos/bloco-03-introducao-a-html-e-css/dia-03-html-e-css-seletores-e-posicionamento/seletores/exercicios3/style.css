@@ -1,0 +1,16 @@
+ol{
+    background-color: yellow;
+}
+ol li.Par{
+    color: green;
+}
+ol li.Impar{
+    text-transform: uppercase;
+}
+#Header{
+    color: red;
+}
+h1{
+    font-size:40px;
+    border: 1px solid black;
+}
