@@ -37,11 +37,14 @@
   }
   
   section {
-  
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
   }
   
   figure {
-      margin: 0;
+      margin: 10;
+      margin-left: 0;
   }
   
   figcaption {
