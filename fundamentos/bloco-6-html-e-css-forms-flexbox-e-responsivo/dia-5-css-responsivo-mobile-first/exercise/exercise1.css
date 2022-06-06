@@ -50,3 +50,15 @@
   figcaption {
     font-size: .8em;
   }
+
+  @media screen and (min-width: 800px) {
+      body{
+          background-color: #D8BFD8;
+          font-size: large;
+          margin: 30px;
+      }
+      section{
+          flex-direction: row;
+          flex-wrap: wrap;
+      }
+  }
