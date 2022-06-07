@@ -66,7 +66,8 @@ li{
 
 @media screen and (min-width:600px) {
     body {
-        background-color: #E9967A;
+        background-color:plum;
+        font-size: 20px;
     }
     nav{
         display: flex;
@@ -74,5 +75,22 @@ li{
     ul{
         flex-direction: row;
         flex-wrap: wrap;
+    }
+}
+
+@media screen and (min-width:1000px) {
+    body {
+        background-color:antiquewhite;
+        font-size: 25px;
+    }
+    nav{
+        display: flex;
+    }
+    ul{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .main-content{
+        font-size: 25px !important;
     }
 }
