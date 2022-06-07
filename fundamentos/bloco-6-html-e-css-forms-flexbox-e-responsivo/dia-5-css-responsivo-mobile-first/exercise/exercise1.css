@@ -3,62 +3,77 @@
  * apply a natural box layout model to all elements, but allowing components to change
  */
  html {
-    box-sizing: border-box;
-  }
-  
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-  
-  body {
-      font-size: large;
-      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  }
-  
-  article {
-  
-  }
-  
-  h1 {
-    font-family: Cinzel, serif;
-    font-size: 40px;
-  }
-  
-  h2 {
-  
-  }
-  
-  img {
-      max-width: 100%;
-  }
-  
-  main {
-  
-  }
-  
-  section {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-  }
-  
-  figure {
-      margin: 10;
-      margin-left: 0;
-  }
-  
-  figcaption {
-    font-size: .8em;
-  }
+  box-sizing: border-box;
+}
 
-  @media screen and (min-width: 800px) {
-      body{
-          background-color: #D8BFD8;
-          font-size: large;
-          margin: 30px;
-      }
-      section{
-          flex-direction: row;
-          flex-wrap: wrap;
-      }
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+    font-size: large;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: justify;
+}
+
+article {
+
+}
+
+h1 {
+  font-family: Cinzel, serif;
+  font-size: 40px;
+}
+
+h2 {
+
+}
+
+img {
+    max-width: 100%;
+}
+
+main {
+
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+figure {
+    margin: 10;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+figcaption {
+  font-size: .8em;
+}
+
+@media screen and (min-width: 650px) {
+    body{
+        background-color: #D8BFD8;
+        font-size: large;
+        margin: 30px;
+    }
+    section{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    img{
+      max-width: 300px;
+    }
+
+}
+
+@media screen  and (min-width:1200px ) {
+  body{
+    background-color: #ffbfaa;
+    font-size: 25px;
+    margin: 15px;
+    max-width: 1400px;
   }
+}
