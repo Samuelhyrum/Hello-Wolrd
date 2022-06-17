@@ -51,6 +51,21 @@ function hello() {
 }
 
 
+var clickcountCount = 0;
+const btn = document.getElementById("btn");
+const disp = document.getElementById("display");
+
+btn.addEventListener("click", function () {
+    clickcountCount++;
+    disp.innerHTML = clickcountCount;
+});
 
 
-  
+
+
+const Template = (nome) => {
+    const frase = { prim: "Trybe", seg: "x", ter: "aqui" }
+    frase.seg = nome;
+    console.log(`${frase.prim} ${frase.seg} ${frase.ter}`);
+}
+Template("samuel");
