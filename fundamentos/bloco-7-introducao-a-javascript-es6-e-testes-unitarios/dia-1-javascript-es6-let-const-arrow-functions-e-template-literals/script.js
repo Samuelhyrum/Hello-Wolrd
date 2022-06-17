@@ -1,54 +1,54 @@
-if (true) {
-    // inicio do escopo do if
-    var userAge = '20';
-    console.log(userAge); // 20
-    // fim do escopo do if
-}
-console.log(userAge); // 20
+// if (true) {
+//     // inicio do escopo do if
+//     var userAge = '20';
+//     console.log(userAge); // 20
+//     // fim do escopo do if
+// }
+// console.log(userAge); // 20
 
 
 
-var userName = 'Isabella';
-var userName = 'Lucas';
-console.log(userName); // Resultado: Lucas
+// var userName = 'Isabella';
+// var userName = 'Lucas';
+// console.log(userName); // Resultado: Lucas
 
 
-let favoriteLanguage = 'Javascript';
-favoriteLanguage = 'Python';
-console.log(favoriteLanguage); // Erro
+// let favoriteLanguage = 'Javascript';
+// favoriteLanguage = 'Python';
+// console.log(favoriteLanguage); // Erro
 
-let favoriteTechnology = 'Machine learning';
-favoriteTechnology = 'Facial recognition';
-console.log(favoriteTechnology); // Facial recognition
-
-
-const userInfo = {
-    name: 'Cláudio',
-    id: '5489-2',
-    email: 'claudio@email.com',
-};
-
-userInfo.name = 'João';
-
-console.log(userInfo); // { name: 'João', id: '5489-2', email: 'claudio@email.com' }
+// let favoriteTechnology = 'Machine learning';
+// favoriteTechnology = 'Facial recognition';
+// console.log(favoriteTechnology); // Facial recognition
 
 
+// const userInfo = {
+//     name: 'Cláudio',
+//     id: '5489-2',
+//     email: 'claudio@email.com',
+// };
 
-const technologies = ['Javascript', 'CSS', 'HTML'];
-technologies.push('React');
-console.log(technologies); // [ 'Javascript', 'CSS', 'HTML', 'React' ]
+// userInfo.name = 'João';
 
-technologies = ['Javascript', 'CSS', 'HTML', 'React']
-console.log(technologies); // Erro
+// console.log(userInfo); // { name: 'João', id: '5489-2', email: 'claudio@email.com' }
 
 
-const myName = 'Samuel';
-console.log(`Welcome ${myName} Hyrum !`);
 
-function hello() {
-    let s = ["Hello World!", "Olá Mundo!"];
-    console.log(s[0]);
-}
+// const technologies = ['Javascript', 'CSS', 'HTML'];
+// technologies.push('React');
+// console.log(technologies); // [ 'Javascript', 'CSS', 'HTML', 'React' ]
+
+// technologies = ['Javascript', 'CSS', 'HTML', 'React']
+// console.log(technologies); // Erro
+
+
+// const myName = 'Samuel';
+// console.log(`Welcome ${myName} Hyrum !`);
+
+// function hello() {
+//     let s = ["Hello World!", "Olá Mundo!"];
+//     console.log(s[0]);
+// }
 
 
 var clickcountCount = 0;
@@ -64,8 +64,26 @@ btn.addEventListener("click", function () {
 
 
 const Template = (nome) => {
-    const frase = { prim: "Trybe", seg: "x", ter: "aqui" }
+    const frase = { prim: "Trybe", seg: "x", ter: "aqui!" }
     frase.seg = nome;
-    console.log(`${frase.prim} ${frase.seg} ${frase.ter}`);
+    const concat = (`${frase.prim} ${frase.seg} ${frase.ter}`);
 }
-Template("samuel");
+
+    const bah = (concat) => {
+        const skills = ["JavaScript", "HTML", "CSS"];
+        const retorno = (`${concat} Minhas três principais habilidades são: ${skills}`);
+        console.log(retorno);
+    }
+Template("Samuel");
+
+// const Template = (nome) => {
+//     const frase = 'Trybe x aqui';
+//     let palavra = frase.split(' ');
+//     palavra[1] = nome;
+//     const concat = (`${palavra[0]} ${palavra[1]} ${palavra[2]}`);
+//     // const template2 = (palavra) =>{
+//     //     const skills = ["JavaScript", "HTML", "CSS"];
+//     console.log(concat);
+//     }
+// // }
+// Template("Samuel");
