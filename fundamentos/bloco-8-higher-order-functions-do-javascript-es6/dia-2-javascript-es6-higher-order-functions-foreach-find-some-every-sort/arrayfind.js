@@ -39,9 +39,37 @@ const names = ['João', 'Irene', 'Fernando', 'Mariaaaaa'];
 
 
 const findin = names.find((names) => names.split(' '),
-names.sort((a, b) => b.length - a.length)[0]
-);
+    names.sort((a, b) => b.length === 6 || a.length === 6
+    ));
 // Adicione seu código aqui:
-
-
 console.log(findin);
+
+
+
+
+
+
+const musicas = [
+    { id: '31031685', title: 'Partita in C moll BWV 997' },
+    { id: '31031686', title: 'Toccata and Fugue, BWV 565' },
+    { id: '31031687', title: 'Chaconne, Partita No. 2 BWV 1004' },
+]
+
+const result = musicas.find(music => music.id === '31031685');
+
+console.log(result);
+
+
+
+
+const names1 = ['João', 'Irene', 'Fernando', 'Maria'];
+
+
+const findNameWithFiveLetters = names1.find(letter => letter.length === 5);
+console.log(findNameWithFiveLetters);
+
+
+
+
+
+
