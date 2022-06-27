@@ -38,8 +38,7 @@ const names = ['João', 'Irene', 'Fernando', 'Mariaaaaa'];
 // names.sort((a, b) => b.length - a.length)[0];
 
 
-const findin = names.find((names) => names.split(' '),
-    names.sort((a, b) => b.length === 6 || a.length === 6
+const findin = names.find((names) => names.sort((a, b) => b.length === 6 || a.length === 6
     ));
 // Adicione seu código aqui:
 console.log(findin);
