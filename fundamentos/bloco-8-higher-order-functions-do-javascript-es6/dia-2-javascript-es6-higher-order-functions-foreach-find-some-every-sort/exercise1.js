@@ -89,5 +89,11 @@ const books = [
 
 // Quarto exercicio
 
-books.sort((a,b)=> a.releaseYear < b.releaseYear ? 1 : -1)
-console.log(books);
+// books.sort((a,b)=> a.releaseYear < b.releaseYear ? 1 : -1)
+// console.log(books);
+
+
+
+//Quinto exercicio
+// const everyoneWasBornOnSecXX = books.every((born)=> born.author.birthYear <=1999 )
+// console.log(everyoneWasBornOnSecXX);
