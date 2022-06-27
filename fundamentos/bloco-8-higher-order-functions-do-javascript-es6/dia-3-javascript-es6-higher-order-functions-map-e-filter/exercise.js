@@ -62,6 +62,27 @@ const books = [
 ];
 
 // Adicione o código do exercício aqui:
+
 //Primeira TASK
-const formatedBookNames = books.map((Array) => `${Array.name} - ${Array.genre} - ${Array.author.name}`);
-console.log(formatedBookNames);
+
+// const formatedBookNames = books.map((Array) => `${Array.name} - ${Array.genre} - ${Array.author.name}`);
+// console.log(formatedBookNames);
+
+
+
+//Segunda TASK
+
+// const nameAndAge = books.map((autor) => {
+//     const newArray = {};
+//     newArray.age = autor.releaseYear - autor.author.birthYear;
+//     newArray.author = autor.author.name;
+//     // newArray=newArray.sort((a, b) => b.age > a.age ? 1 : -1);
+//     return newArray;
+// });
+
+// console.log(nameAndAge);
+
+//Terceira task
+
+const fantasyOrScienceFiction = books.filter((genero)=> genero.genre === 'Fantasia' || genero.genre ==='Ficção Científica')
+console.log(fantasyOrScienceFiction);
