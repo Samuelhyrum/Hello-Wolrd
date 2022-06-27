@@ -33,7 +33,7 @@ const books = [
     id: 4,
     name: 'Duna',
     genre: 'Ficção Científica',
-   author: {
+    author: {
       name: 'Frank Herbert',
       birthYear: 1920,
     },
@@ -97,3 +97,28 @@ const books = [
 //Quinto exercicio
 // const everyoneWasBornOnSecXX = books.every((born)=> born.author.birthYear <=1999 )
 // console.log(everyoneWasBornOnSecXX);
+
+
+// Sexto Exercicio
+// const onthe80s = books.some((oitenta) => oitenta.releaseYear <= 1990 && oitenta.releaseYear >= 1980)
+// console.log(onthe80s);
+
+
+// Sétimo Exercicio
+
+function authorUnique() {
+  let nascido = 1919;
+  let boleano;
+  books.forEach((book) => {
+    if (book.author.birthYear === nascido) {
+      nascido = book.author.birthYear;
+      boleano = false;
+    }if(book.author.birthYear !== nascido){
+      nascido = book.author.birthYear;
+      boleano = true;
+    }
+  })
+  return boleano;
+}
+
+console.log(authorUnique());
