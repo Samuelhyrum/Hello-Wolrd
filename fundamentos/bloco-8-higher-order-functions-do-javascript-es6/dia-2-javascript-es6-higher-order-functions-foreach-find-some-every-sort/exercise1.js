@@ -25,7 +25,7 @@ const books = [
     genre: 'Ficção Científica',
     author: {
       name: 'Isaac Asimov',
-      birthYear: 1920,
+      birthYear: 1929,
     },
     releaseYear: 1951,
   },
@@ -106,19 +106,28 @@ const books = [
 
 // Sétimo Exercicio
 
-function authorUnique() {
-  let nascido = 1919;
-  let boleano;
-  books.forEach((book) => {
-    if (book.author.birthYear === nascido) {
-      nascido = book.author.birthYear;
-      boleano = false;
-    }if(book.author.birthYear !== nascido){
-      nascido = book.author.birthYear;
-      boleano = true;
-    }
-  })
-  return boleano;
-}
+const authorUnique =(book, ano) => book.every((book)=> book.author.birthYear !== ano );
 
-console.log(authorUnique());
+console.log(authorUnique(books, 1920));
+
+
+
+
+
+
+
+
+
+// function authorUnique() {
+//   let nascido = 1919;
+//   let boleano;
+//   books.forEach((book) => {
+//     if (book.author.birthYear.includes(nascido)) {
+//       nascido = book.author.birthYear;
+//       boleano = false;
+//     } else boleano = true;
+//   })
+//   return boleano;
+// }
+
+// console.log(authorUnique());
