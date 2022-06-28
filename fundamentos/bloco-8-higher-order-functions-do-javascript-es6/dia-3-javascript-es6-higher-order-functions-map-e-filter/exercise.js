@@ -121,3 +121,8 @@ const books = [
 
 //Sexta Task
 
+const oldBooksOrdered = books.filter((old) => old.releaseYear < 1962);
+const olds = oldBooksOrdered.map((velho) => ( 
+    `${velho.name}`
+));
+console.log(olds);
