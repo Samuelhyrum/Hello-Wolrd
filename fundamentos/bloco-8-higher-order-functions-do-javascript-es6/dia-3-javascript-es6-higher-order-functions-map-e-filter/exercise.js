@@ -105,11 +105,19 @@ const books = [
 
 //Quarta task
 
-const oldBooksOrdered = books.filter((old) => old.releaseYear < 1962);
-const result = oldBooksOrdered;
-result.sort((a, b) => b.releaseYear < a.releaseYear ? 1 : -1);
-
-console.log(result);
+// const oldBooksOrdered = books.filter((old) => old.releaseYear < 1962);
+// const result = oldBooksOrdered.sort((a, b) => b.releaseYear < a.releaseYear ? 1 : -1);
+// console.log(result);
 
 
 //Quinta task 
+
+// const fantasyOrScienceFictionAuthors = books.filter((genero) => genero.genre === 'Fantasia' || genero.genre === 'Ficção Científica');
+// const ordem = fantasyOrScienceFictionAuthors.map((alfa) => (
+//     `${alfa.author.name}`
+// ));
+// const final = ordem.sort();
+// console.log(final);
+
+//Sexta Task
+
