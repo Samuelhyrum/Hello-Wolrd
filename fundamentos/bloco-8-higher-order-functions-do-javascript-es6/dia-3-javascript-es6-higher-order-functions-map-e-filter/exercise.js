@@ -121,8 +121,17 @@ const books = [
 
 //Sexta Task
 
-const oldBooksOrdered = books.filter((old) => old.releaseYear < 1962);
-const olds = oldBooksOrdered.map((velho) => ( 
-    `${velho.name}`
+// const oldBooksOrdered = books.filter((old) => old.releaseYear < 1962);
+// const olds = oldBooksOrdered.map((velho) => ( 
+//     `${velho.name}`
+// ));
+// console.log(olds);
+
+
+//Setima task 
+
+const authorWith3DotsOnName = books.filter((ini) => ini.author.name === 'J. R. R. Tolkien');
+const livro = authorWith3DotsOnName.map((b) => (
+    `${b.name}`
 ));
-console.log(olds);
+console.log(livro);
