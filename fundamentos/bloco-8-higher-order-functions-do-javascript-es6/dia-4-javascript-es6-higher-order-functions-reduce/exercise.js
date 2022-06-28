@@ -73,10 +73,18 @@ const books = [
 // console.log(flatten);
 
 //Segunda Task
-const gettin = books.map((b) => b.author.name);
-const get = gettin.reduce((p, r) => {
-    return `${p}, ${r}`;
-});
-console.log(get);
+// const gettin = books.map((b) => b.author.name);
+// const get = gettin.reduce((p, r) => {
+//     return `${p}, ${r}`;
+// });
+// console.log(get);
 
 //Terceira Task
+const med = books.map((idade) => idade.releaseYear - idade.author.birthYear);
+
+const opa = (media) => {
+    return media.reduce((o, a) => {
+        return o + a % 1;
+    });
+}
+console.log(opa(med));
