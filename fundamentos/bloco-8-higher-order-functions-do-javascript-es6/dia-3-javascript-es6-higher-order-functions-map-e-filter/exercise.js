@@ -130,8 +130,9 @@ const books = [
 
 //Setima task 
 
-const authorWith3DotsOnName = books.filter((ini) => ini.author.name === 'J. R. R. Tolkien');
-const livro = authorWith3DotsOnName.map((b) => (
-    `${b.name}`
-));
-console.log(livro);
+// const authorWith3DotsOnName = books.filter((ini) => ini.author.name === 'J. R. R. Tolkien');
+// const livro = authorWith3DotsOnName.map((b) => (
+//     `${b.name}`
+// ));
+// console.log(livro);
+ 
