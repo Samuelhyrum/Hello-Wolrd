@@ -73,5 +73,10 @@ const books = [
 // console.log(flatten);
 
 //Segunda Task
-const gettin = (book) => book.map((b) => b.author.name);
-console.log(gettin(books));
+const gettin = books.map((b) => b.author.name);
+const get = gettin.reduce((p, r) => {
+    return `${p}, ${r}`;
+});
+console.log(get);
+
+//Terceira Task
