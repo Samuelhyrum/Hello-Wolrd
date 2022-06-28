@@ -79,23 +79,24 @@ const books = [
 //     rray.author = idade.map((aut) => aut.author.name);
 
 //     return newArray, rray;
-    
+
 // };
 
 // console.log(nameAndAge(books));
 
 
-const nameAndAge = books.map((autor) => {
-    const newArray = {};
-    newArray.age = autor.releaseYear - autor.author.birthYear;
-    newArray.author = autor.author.name;
+// const nameAndAge = books.map((autor) => {
+//     const newArray = {};
+//     newArray.age = autor.releaseYear - autor.author.birthYear;
+//     newArray.author = autor.author.name;
 
-    return newArray
-});
-const ne = nameAndAge;
-ne.sort((a, b) => b.age < a.age ? 1 : -1);
+//     return newArray
+// });
+// const ne = nameAndAge;
+// ne.sort((a, b) => b.age < a.age ? 1 : -1);
 
-console.log(ne);
+// console.log(ne);
+
 //Terceira task
 
 // const fantasyOrScienceFiction = books.filter((genero)=> genero.genre === 'Fantasia' || genero.genre ==='Ficção Científica')
@@ -104,10 +105,11 @@ console.log(ne);
 
 //Quarta task
 
-// const oldBooksOrdered = books.filter((old) => old.releaseYear < 1962) ;
-// // sort((a, b) => b.releaseYear < a.releaseYear);
+const oldBooksOrdered = books.filter((old) => old.releaseYear < 1962);
+const result = oldBooksOrdered;
+result.sort((a, b) => b.releaseYear < a.releaseYear ? 1 : -1);
 
-// console.log(oldBooksOrdered);
+console.log(result);
 
 
 //Quinta task 
