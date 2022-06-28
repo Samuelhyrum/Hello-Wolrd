@@ -91,16 +91,16 @@ const books = [
 
 //Quarta Task
 
-function longestNamedBook(book) {
-    return book.reduce((a, b) => {
-        if (a.name.length < b.name.length){
-            a = b;
-        }
-        return a;
-    });
-}
+// function longestNamedBook(book) {
+//     return book.reduce((a, b) => {
+//         if (a.name.length < b.name.length){
+//             a = b;
+//         }
+//         return a;
+//     });
+// }
 
-console.log(longestNamedBook(books));
+// console.log(longestNamedBook(books));
 
 // function maior() {
 //     let nameBook = 'O Chamado de Cthulhu';
@@ -112,3 +112,26 @@ console.log(longestNamedBook(books));
 //   }
 //   console.log(maior());
 
+
+//Quinta Task
+
+const names = [
+    'Aanemarie', 'Adervandes', 'Akifusa',
+    'Abegildo', 'Adicellia', 'Aladonata',
+    'Abeladerco', 'Adieidy', 'Alarucha',
+];
+
+const nam = names.reduce((r, c) => {
+    return `${r} ${c}`;
+});
+const containsA = nam.split("");
+
+function contain(contains) {
+    return contains.reduce((a, b) => {
+        if (b === "a" || b === "A") {
+            return a + 1;
+        }
+        return a;
+    }, 0)
+}
+console.log(contain(containsA));
