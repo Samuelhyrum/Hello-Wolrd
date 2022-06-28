@@ -80,11 +80,35 @@ const books = [
 // console.log(get);
 
 //Terceira Task
-const med = books.map((idade) => idade.releaseYear - idade.author.birthYear);
+// const med = books.map((idade) => idade.releaseYear - idade.author.birthYear);
 
-const opa = (media) => {
-    return media.reduce((o, a) => {
-        return o + a % 1;
+// const opa = (media) => {
+//     return media.reduce((o, a) => {
+//         return o + a % 1;
+//     });
+// }
+// console.log(opa(med));
+
+//Quarta Task
+
+function longestNamedBook(book) {
+    return book.reduce((a, b) => {
+        if (a.name.length < b.name.length){
+            a = b;
+        }
+        return a;
     });
 }
-console.log(opa(med));
+
+console.log(longestNamedBook(books));
+
+// function maior() {
+//     let nameBook = 'O Chamado de Cthulhu';
+//     books.forEach((book) => {
+//       if (book.name.length > nameBook.length) {
+//         nameBook = book;
+//     }})
+//     return nameBook;
+//   }
+//   console.log(maior());
+
