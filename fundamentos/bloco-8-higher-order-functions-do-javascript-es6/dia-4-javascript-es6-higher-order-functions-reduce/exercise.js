@@ -115,23 +115,45 @@ const books = [
 
 //Quinta Task
 
-const names = [
-    'Aanemarie', 'Adervandes', 'Akifusa',
-    'Abegildo', 'Adicellia', 'Aladonata',
-    'Abeladerco', 'Adieidy', 'Alarucha',
-];
+// const names = [
+//     'Aanemarie', 'Adervandes', 'Akifusa',
+//     'Abegildo', 'Adicellia', 'Aladonata',
+//     'Abeladerco', 'Adieidy', 'Alarucha',
+// ];
 
-const nam = names.reduce((r, c) => {
-    return `${r} ${c}`;
-});
-const containsA = nam.split("");
+// const nam = names.reduce((r, c) => {
+//     return `${r} ${c}`;
+// });
+// const containsA = nam.split("");
 
-function contain(contains) {
-    return contains.reduce((a, b) => {
-        if (b === "a" || b === "A") {
-            return a + 1;
-        }
-        return a;
-    }, 0)
+// function contain(contains) {
+//     return contains.reduce((a, b) => {
+//         if (b === "a" || b === "A") {
+//             return a + 1;
+//         }
+//         return a;
+//     }, 0)
+// }
+// console.log(contain(containsA));
+
+//Task 6sy
+const students = ['Pedro Henrique', 'Miguel', 'Maria Clara'];
+const grades = [[9, 8, 10, 7, 5], [10, 9, 9, 10, 8], [10, 7, 10, 8, 9]];
+
+const get = (acc, index, media) => {
+    media = acc + index;
+    return media;
 }
-console.log(contain(containsA));
+
+const studentAverage = (list1, list2) => list1.map((l, i) => ({
+    name: l,
+    average: list2[i].reduce(get)
+}));
+
+const list1 = studentAverage(students, grades);
+console.log(list1);
+// const expected = [
+//   { name: 'Pedro Henrique', average: 7.8 },
+//   { name: 'Miguel', average: 9.2 },
+//   { name: 'Maria Clara', average: 8.8 },
+// ];
