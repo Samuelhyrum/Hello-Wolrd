@@ -147,7 +147,7 @@ const get = (acc, index, media) => {
 
 const studentAverage = (list1, list2) => list1.map((l, i) => ({
     name: l,
-    average: list2[i].reduce(get)
+    average: list2[i].reduce(get)/5
 }));
 
 const list1 = studentAverage(students, grades);
