@@ -138,16 +138,62 @@
 //EXERCICIO 7
 
 
-const uppercase = (str, callback) => {
+// const uppercase = (str, callback) => {
+//     setTimeout(() => {
+//       callback(str.toUpperCase());
+//     }, 500);
+//   };
+
+
+//   test('teste que verifique a chamada da callback de uma função uppercase, que transforma as letras de uma palavra em letras maiúsculas.', (done) => {
+//     uppercase('samuelhyrum', (upperCase) => {
+//       expect(upperCase).toBe('SAMUELHYRUM');
+//     });
+//     done();
+//   });
+
+
+//EXERCICIO 8
+
+
+const pokemons = [
+    {
+        name: 'Bulbasaur',
+        type: 'Grass',
+        ability: 'Razor Leaf',
+    },
+    {
+        name: 'Charmander',
+        type: 'Fire',
+        ability: 'Ember',
+    },
+    {
+        name: 'Squirtle',
+        type: 'Water',
+        ability: 'Water Gun',
+    },
+];
+
+function getPokemonDetails(filter, callback) {
     setTimeout(() => {
-      callback(str.toUpperCase());
-    }, 500);
-  };
-  
-  
-  test('teste que verifique a chamada da callback de uma função uppercase, que transforma as letras de uma palavra em letras maiúsculas.', (done) => {
-    uppercase('samuelhyrum', (upperCase) => {
-      expect(upperCase).toBe('SAMUELHYRUM');
-    });
-    done();
-  });
+        if (pokemons.find(filter) === undefined) {
+            return callback(new Error('Não temos esse pokémon para você :('), null);
+        }
+        const pokemon = pokemons.find(filter => filter.name === filter2);
+
+        const { name, type, ability } = pokemon;
+
+        const messageFromProfOak = `Olá, seu pokémon é o ${name}, o tipo dele é ${type} e a habilidade principal dele é ${ability}`;
+
+        callback(null, messageFromProfOak);
+    }, 2000);
+}
+
+getPokemonDetails('Squirtle', (callback) => {
+    console.log(callback);
+});
+
+module.exports = {
+    getPokemonDetails,
+};
+
