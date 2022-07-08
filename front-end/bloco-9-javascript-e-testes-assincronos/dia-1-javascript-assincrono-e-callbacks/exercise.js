@@ -97,6 +97,7 @@
 
 //EXERCICIO 6
 
+
 const messageDelay = () => Math.floor(Math.random() * 5000);
 
 const getMarsTemperature = () => {
@@ -104,7 +105,7 @@ const getMarsTemperature = () => {
   return Math.floor(Math.random() * maxTemperature);
 }
 
-const toFahrenheit = (degreeCelsius) => (degreeCelsius * 9 / 5) + 32;
+const toFahrenheit = (degreeCelsius) => (degreeCelsius * 9/5) + 32;
 
 const temperatureInFahrenheit = (temperature) =>
   console.log(`It is currently ${toFahrenheit(temperature)}ºF at Mars`);
@@ -116,18 +117,19 @@ const handleError = (errorReason) =>
   console.log(`Error getting temperature: ${errorReason}`);
 
 // definição da função sendMarsTemperature...
-
-const sendMarsTemperature = (temp, error) => {
-  const didOperationSucceed = Math.random() >= 0.5;
-  if (didOperationSucceed) {
-    console.log(temp)
-  } else {
-    console.log(error);
-  }
+const sendMarsTemperature = (sucess, error) => {
+  setTimeout (() => {
+    const didOperationSucceed = Math.random() >= 0.6;
+    if(didOperationSucceed){
+      sucess(getMarsTemperature());
+    } else {
+      error('Robot is busy');
+    }
+  }, messageDelay());
 }
 
 // imprime "It is currently 47ºF at Mars", por exemplo, ou "Error getting temperature: Robot is busy"
-setTimeout(() => sendMarsTemperature(temperatureInFahrenheit(getMarsTemperature()), handleError('Robot is busy')), messageDelay());
+sendMarsTemperature(temperatureInFahrenheit, handleError);
 
 // imprime "Hi there! Curiosity here. Right now is 53ºC at Mars", por exemplo, ou "Error getting temperature: Robot is busy"
-setTimeout(() => sendMarsTemperature(greet(getMarsTemperature()), handleError('Robot is busy')), messageDelay());
+sendMarsTemperature(greet, handleError);
