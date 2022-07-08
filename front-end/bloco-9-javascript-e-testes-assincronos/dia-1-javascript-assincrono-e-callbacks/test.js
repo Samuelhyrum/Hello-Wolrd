@@ -6,6 +6,8 @@
 //   }, 500);
 // });
 
+const { expect } = require("expect");
+
 // test('Não deveria passar!', (done) => {
 //   setTimeout(() => {
 //     try {
@@ -55,17 +57,17 @@
 
 
 // EXEMPLO 3 USANDO O METODO ATUAL NOSSO DE TESTES
-// cicles.test.js
+// // cicles.test.js
 
-let cities = [];
+// let cities = [];
 
-const addCity = (city) => {
-  cities.push(city);
-};
+// const addCity = (city) => {
+//   cities.push(city);
+// };
 
-const removeCity = (city) => {
-  cities = cities.filter((eachCity) => eachCity !== city);
-};
+// const removeCity = (city) => {
+//   cities = cities.filter((eachCity) => eachCity !== city);
+// };
 
 
 // cicles.test.js
@@ -156,54 +158,54 @@ const removeCity = (city) => {
 // cities = cities.filter((eachCity) => eachCity !== city);
 // };
 
-describe('Agrupa o primeiro bloco de testes', () => {
-  beforeEach(() => {
-    cities = ['Pindamonhangaba'];
-  });
-  
-  afterEach(() => {
-    cities = [];
-  });
-  
-  test('Testa a função addCity dentro do primeiro bloco de testes', () => {
-    expect.assertions(3);
-    addCity('Piraporinha');
-    expect(cities).toHaveLength(2);
-    expect(cities).toContain('Pindamonhangaba');
-    expect(cities).toContain('Piraporinha');
-  });
-  
-  test('Testa a função removeCity dentro do primeiro bloco de testes', () => {
-    expect.assertions(2);
-    removeCity('Pindamonhangaba');
-    expect(cities).not.toContain('Pindamonhangaba');
-    expect(cities).toHaveLength(0);
-  });
-});
+// describe('Agrupa o primeiro bloco de testes', () => {
+//   beforeEach(() => {
+//     cities = ['Pindamonhangaba'];
+//   });
 
-describe('Agrupa o segundo bloco de testes', () => {
-  beforeEach(() => {
-    cities = ['Tangamandapio'];
-  });
-  
-  afterEach(() => {
-    cities = [];
-  });
-  
-  test('Testa a função addCity dentro do segundo bloco de testes', () => {
-    expect.assertions(3);
-    expect(cities).toHaveLength(1);
-    expect(cities).not.toContain('Pindamonhangaba');
-    expect(cities).toContain('Tangamandapio');
-  });
-  
-  test('Testa a função removeCity dentro do segundo bloco de testes', () => {
-    expect.assertions(2);
-    removeCity('Tangamandapio');
-    expect(cities).not.toContain('Pindamonhangaba');
-    expect(cities).toHaveLength(0);
-  });
-});
+//   afterEach(() => {
+//     cities = [];
+//   });
+
+//   test('Testa a função addCity dentro do primeiro bloco de testes', () => {
+//     expect.assertions(3);
+//     addCity('Piraporinha');
+//     expect(cities).toHaveLength(2);
+//     expect(cities).toContain('Pindamonhangaba');
+//     expect(cities).toContain('Piraporinha');
+//   });
+
+//   test('Testa a função removeCity dentro do primeiro bloco de testes', () => {
+//     expect.assertions(2);
+//     removeCity('Pindamonhangaba');
+//     expect(cities).not.toContain('Pindamonhangaba');
+//     expect(cities).toHaveLength(0);
+//   });
+// });
+
+// describe('Agrupa o segundo bloco de testes', () => {
+//   beforeEach(() => {
+//     cities = ['Tangamandapio'];
+//   });
+
+//   afterEach(() => {
+//     cities = [];
+//   });
+
+//   test('Testa a função addCity dentro do segundo bloco de testes', () => {
+//     expect.assertions(3);
+//     expect(cities).toHaveLength(1);
+//     expect(cities).not.toContain('Pindamonhangaba');
+//     expect(cities).toContain('Tangamandapio');
+//   });
+
+//   test('Testa a função removeCity dentro do segundo bloco de testes', () => {
+//     expect.assertions(2);
+//     removeCity('Tangamandapio');
+//     expect(cities).not.toContain('Pindamonhangaba');
+//     expect(cities).toHaveLength(0);
+//   });
+// });
 
 
 // test('Não deveria passar!', (done) => {
@@ -217,3 +219,16 @@ describe('Agrupa o segundo bloco de testes', () => {
 //   }, 500);
 // });
 
+const uppercase = (str, callback) => {
+  setTimeout(() => {
+    callback(str.toUpperCase());
+  }, 500);
+};
+
+
+test('teste que verifique a chamada da callback de uma função uppercase, que transforma as letras de uma palavra em letras maiúsculas.', (done) => {
+  uppercase('samuelhyrum', (upperCase) => {
+    expect(upperCase).toBe('SAMUELHYRUM');
+  });
+  done();
+});
