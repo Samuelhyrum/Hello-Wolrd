@@ -238,6 +238,7 @@
 
 
 //// Verifique se a importação do arquivo correto está sendo feita.
+const { expect } = require("expect");
 const { getPokemonDetails } = require("./exercise");
 
 describe("A função getPokemonDetails", () => {
@@ -252,8 +253,14 @@ describe("A função getPokemonDetails", () => {
   });
   // expect(getPokemonDetails('Squirtlle')).toBe
 });
+describe("A função getPokemonDetails", () => {
 
-  // it("retorna um pokemon que existe no banco de dados", () => {
-
-  // });
-// });
+  test("retorna um pokemon que existe no banco de dados", (done) => {
+    const expectedResponse = "Olá, seu pokémon é o Squirtle, o tipo dele é Water e a habilidade principal dele é Water Gun";
+    function poke(resposta, error) {
+      expect(resposta).toEqual(expectedResponse);
+      done();
+    }
+    getPokemonDetails((pokemon) => pokemon.name === 'Squirtle', poke);
+  });
+});
