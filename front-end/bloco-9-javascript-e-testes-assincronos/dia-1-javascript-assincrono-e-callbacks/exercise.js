@@ -183,9 +183,9 @@ function getPokemonDetails(filter, callback) {
 
         const { name, type, ability } = pokemon;
 
-       const messageFromProfOak = `Olá, seu pokémon é o ${name}, o tipo dele é ${type} e a habilidade principal dele é ${ability}`;
-
-       callback(null, messageFromProfOak);
+        const messageFromProfOak = `Olá, seu pokémon é o ${name}, o tipo dele é ${type} e a habilidade principal dele é ${ability}`;
+        //    console.log(messageFromProfOak);
+         callback(messageFromProfOak);
     }, 2000);
 }
 
