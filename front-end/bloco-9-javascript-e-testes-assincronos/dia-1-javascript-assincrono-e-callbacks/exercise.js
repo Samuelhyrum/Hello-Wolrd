@@ -199,3 +199,16 @@ module.exports = {
     getPokemonDetails,
 };
 
+//EXERCICIO 9
+// describe("A função getPokemonDetails", () => {
+
+//     test("retorna erro quando procuramos um pokemon que não existe no banco de dados", (done) => {
+//       const expectedError = new Error('Não temos esse pokémon para você :(');
+//       function message(messageError, messageOak) {
+//         expect(messageError).toEqual(expectedError);
+//         done();
+//       }
+//       getPokemonDetails((pokemon) => pokemon.name === 'Bulbasau', message);
+//     });
+//     // expect(getPokemonDetails('Squirtlle')).toBe
+//   });

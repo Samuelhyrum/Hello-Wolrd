@@ -6,7 +6,7 @@
 //   }, 500);
 // });
 
-const { expect } = require("expect");
+// const { expect } = require("expect");
 
 // test('Não deveria passar!', (done) => {
 //   setTimeout(() => {
@@ -219,16 +219,41 @@ const { expect } = require("expect");
 //   }, 500);
 // });
 
-const uppercase = (str, callback) => {
-  setTimeout(() => {
-    callback(str.toUpperCase());
-  }, 500);
-};
+
+//TESTE PRA DEIXAR LETRAS MAIUSCULAS 
+
+// const uppercase = (str, callback) => {
+//   setTimeout(() => {
+//     callback(str.toUpperCase());
+//   }, 500);
+// };
 
 
-test('teste que verifique a chamada da callback de uma função uppercase, que transforma as letras de uma palavra em letras maiúsculas.', (done) => {
-  uppercase('samuelhyrum', (upperCase) => {
-    expect(upperCase).toBe('SAMUELHYRUM');
+// test('teste que verifique a chamada da callback de uma função uppercase, que transforma as letras de uma palavra em letras maiúsculas.', (done) => {
+//   uppercase('samuelhyrum', (upperCase) => {
+//     expect(upperCase).toBe('SAMUELHYRUM');
+//   });
+//   done();
+// });
+
+
+//// Verifique se a importação do arquivo correto está sendo feita.
+const { getPokemonDetails } = require("./exercise");
+
+describe("A função getPokemonDetails", () => {
+
+  test("retorna erro quando procuramos um pokemon que não existe no banco de dados", (done) => {
+    const expectedError = new Error('Não temos esse pokémon para você :(');
+    function message(messageError, messageOak) {
+      expect(messageError).toEqual(expectedError);
+      done();
+    }
+    getPokemonDetails((pokemon) => pokemon.name === 'Bulbasau', message);
   });
-  done();
+  // expect(getPokemonDetails('Squirtlle')).toBe
 });
+
+  // it("retorna um pokemon que existe no banco de dados", () => {
+
+  // });
+// });
