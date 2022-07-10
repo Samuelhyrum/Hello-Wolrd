@@ -238,29 +238,43 @@
 
 
 //// Verifique se a importação do arquivo correto está sendo feita.
-const { expect } = require("expect");
-const { getPokemonDetails } = require("./exercise");
+// const { expect } = require("expect");
+// const { getPokemonDetails } = require("./exercise");
 
-describe("A função getPokemonDetails", () => {
+// describe("A função getPokemonDetails", () => {
 
-  test("retorna erro quando procuramos um pokemon que não existe no banco de dados", (done) => {
-    const expectedError = new Error('Não temos esse pokémon para você :(');
-    function message(messageError, messageOak) {
-      expect(messageError).toEqual(expectedError);
-      done();
-    }
-    getPokemonDetails((pokemon) => pokemon.name === 'Bulbasau', message);
-  });
-  // expect(getPokemonDetails('Squirtlle')).toBe
-});
-describe("A função getPokemonDetails", () => {
+//   test("retorna erro quando procuramos um pokemon que não existe no banco de dados", (done) => {
+//     const expectedError = new Error('Não temos esse pokémon para você :(');
+//     function message(messageError, messageOak) {
+//       expect(messageError).toEqual(expectedError);
+//       done();
+//     }
+//     getPokemonDetails((pokemon) => pokemon.name === 'Bulbasau', message);
+//   });
+//   // expect(getPokemonDetails('Squirtlle')).toBe
+// });
+// describe("A função getPokemonDetails", () => {
 
-  test("retorna um pokemon que existe no banco de dados", (done) => {
-    const expectedResponse = "Olá, seu pokémon é o Squirtle, o tipo dele é Water e a habilidade principal dele é Water Gun";
-    function poke(resposta, error) {
-      expect(resposta).toEqual(expectedResponse);
-      done();
-    }
-    getPokemonDetails((pokemon) => pokemon.name === 'Squirtle', poke);
-  });
+//   test("retorna um pokemon que existe no banco de dados", (done) => {
+//     const expectedResponse = "Olá, seu pokémon é o Squirtle, o tipo dele é Water e a habilidade principal dele é Water Gun";
+//     function poke(resposta, error) {
+//       expect(resposta).toEqual(expectedResponse);
+//       done();
+//     }
+//     getPokemonDetails((pokemon) => pokemon.name === 'Squirtle', poke);
+//   });
+// });
+
+
+
+beforeEach(() => console.log('1 - beforeEach'));
+afterEach(() => console.log('1 - afterEach'));
+
+test('', () => console.log('1 - test'));
+
+describe('Scoped / Nested block', () => {
+  beforeEach(() => console.log('2 - beforeEach'));
+  afterEach(() => console.log('2 - afterEach'));
+
+  test('', () => console.log('2 - test'));
 });
