@@ -3,19 +3,14 @@ import './App.css';
 
 const Task = (value) => {
   return (
-    <li>{value}</li>
+    <li>{value.map((comp) => <li>{comp}</li> )}</li>
   );
 }
-const task = Task("Samuel Hyrum")
 class App extends React.Component {
   render() {
-    const compromissos = ['Estudar','Comer', 'Dormir', 'Jogar', 'Procurar namorada', 'Trabalhar'];
+    const compromissos = Task(['Samuel Hyrum','Estudar', 'Comer', 'Dormir', 'Jogar', 'Procurar namorada', 'Trabalhar']);
     return (
-      <div>
-        <ul>
-          {compromissos.map((compromissos) => <li>{compromissos}</li>)}
-        </ul>
-      </div>
+      compromissos
     );
   }
 }
