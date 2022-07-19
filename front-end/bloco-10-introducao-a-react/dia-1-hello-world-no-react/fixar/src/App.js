@@ -3,7 +3,7 @@ import './App.css';
 
 const Task = (value) => {
   return (
-    <li>{value.map((comp) => <li>{comp}</li> )}</li>
+    <ul>{value.map((comp) => <li>{comp}</li> )}</ul>
   );
 }
 class App extends React.Component {
