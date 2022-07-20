@@ -29,9 +29,9 @@ class Content extends React.Component {
             <main>
                 {conteudos.map((conteudo, index) => {
                     return (
-                        <div key={index}> <li>
+                        <div className='Content' key={index}> <li>
                             O conteúdo é:  {conteudo.conteudo}
-                        </li>
+                        </li >
                             <li>
                                 Status: {conteudo.status}
                             </li>
