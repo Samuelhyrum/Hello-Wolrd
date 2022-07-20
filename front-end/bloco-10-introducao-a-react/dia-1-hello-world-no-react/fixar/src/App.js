@@ -1,18 +1,33 @@
 import React from 'react';
-import './App.css';
+// import './App.css';
+// import Header from './Header';
+import Content from './Content';
+import Header from './Header';
+import Footer from './Footer';
 
-const Task = (value) => {
-  return (
-    <ul>{value.map((comp) => <li>{comp}</li> )}</ul>
-  );
+function App() {
+  return <main>
+    <Header/>
+    <Content />
+    <footer>
+      <Footer/>
+    </footer>
+    </main>
+
 }
-class App extends React.Component {
-  render() {
-    const compromissos = Task(['Samuel Hyrum','Estudar', 'Comer', 'Dormir', 'Jogar', 'Procurar namorada', 'Trabalhar']);
-    return (
-      compromissos
-    );
-  }
-}
+
+// const Task = (value) => {
+//   return (
+//     <ul>{value.map((comp) => <li>{comp}</li> )}</ul>
+//   );
+// }
+// class App extends React.Component {
+//   render() {
+//     const compromissos = Task(['Samuel Hyrum','Estudar', 'Comer', 'Dormir', 'Jogar', 'Procurar namorada', 'Trabalhar']);
+//     return (
+//       compromissos
+//     );
+//   }
+// }
 
 export default App;
