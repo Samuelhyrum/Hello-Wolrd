@@ -1,33 +1,48 @@
 import React from 'react';
 import './App.css';
 
-/* Embora isso funcione, essa DEFINITIVAMENTE
-não é a maneira correta de se criar eventos
-em React! A função se refere ao componente,
-então deve ser parte de sua classe! */
-function handleClick() {
-  console.log('Clicou no botão!')
-}
-function Click() {
-  console.log('Clicou no botão!')
-}
-function handle() {
-  console.log('Clicou no botão!')
-}
-
 class App extends React.Component {
-  /* Repare que, diferentemente do HTML, no
-  JSX você associa uma função a um evento
-  passando a própria função entre chaves `{}` */
+  constructor() {
+    super()
+
+    this.handleClick = this.handleClick.bind(this)
+    this.Click = this.Click.bind(this)
+    this.handle = this.handle.bind(this)
+
+    this.state = {
+      numeroCliques: 0,
+      numero: 0,
+      num : 0
+    }
+
+  }
+
+  handleClick() {
+    this.setState((antigo, _props) => ({
+      numero: antigo.numero + 1
+    }))
+  }
+  Click() {
+    this.setState((antigo, _props) => ({
+      num: antigo.num + 1
+    }))
+  }
+  handle() {
+    this.setState((antigo, _props) => ({
+      numeroCliques: antigo.numeroCliques + 1
+    }))
+  }
+
+
   render() {
     return (
-      <div> 
-      <button onClick={handleClick}>Meu botão</button>
-      <button onClick={Click}>Meu botão</button>
-      <button onClick={handle}>Meu botão</button>
+      <div>
+        <button onClick={this.handleClick}>{this.state.numero}</button>
+        <button onClick={this.Click}>{this.state.num}</button>
+        <button onClick={this.handle}>{this.state.numeroCliques}</button>
 
       </div>
-      )
+    )
   }
 }
 
