@@ -17,6 +17,12 @@ class App extends React.Component {
 
   }
 
+  // par () {
+  //   this.setState((antigo, _props) => {if (antigo %2 ===0){
+  //    num : antigo.num +green
+  //   }
+  // })
+  // }
   handleClick() {
     this.setState((antigo, _props) => ({
       numero: antigo.numero + 1
