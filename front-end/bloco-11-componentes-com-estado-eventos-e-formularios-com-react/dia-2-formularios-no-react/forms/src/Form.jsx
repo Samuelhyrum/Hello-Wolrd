@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Name from './Name';
+import Email from './Email';
+import Age from './Age';
 
 class Form extends Component {
   constructor() {
@@ -23,28 +26,9 @@ class Form extends Component {
     });
   }
 
-  renderSelectInput() {
-    const { age } = this.state;
-
-    return (
-      <label htmlFor="age">
-        Idade:
-        <select
-          id="age"
-          name="age"
-          onChange={ this.handleChange }
-          value={ age }
-        >
-          <option value="">Selecione</option>
-          <option value="adult">Maior que 18</option>
-          <option value="underage">Menor que 18</option>
-        </select>
-      </label>
-    );
-  }
 
   render() {
-    const { name, email, anecdote, terms } = this.state;
+    const { email, anecdote, terms } = this.state;
 
     return (
       <div>
@@ -53,29 +37,12 @@ class Form extends Component {
           <fieldset>
             <legend>Informações pessoais</legend>
 
-            <label htmlFor="name">
-              Nome:
-              <input
-                id="name"
-                name="name"
-                type="text"
-                onChange={ this.handleChange }
-                value={ name }
-              />
-            </label>
+            <Name value={this.state.name} handleChange={this.handleChange}/>
 
-            <label htmlFor="email">
-              Email:
-              <input
-                id="email"
-                name="email"
-                type="email"
-                onChange={ this.handleChange }
-                value={ email }
-              />
-            </label>
+            <Email value={this.state.email} handleChange={this.handleChange}/>
 
-            { this.renderSelectInput() }
+            <Age value={this.state.age} handleChange={this.handleChange}/>
+            
           </fieldset>
 
           <fieldset>
