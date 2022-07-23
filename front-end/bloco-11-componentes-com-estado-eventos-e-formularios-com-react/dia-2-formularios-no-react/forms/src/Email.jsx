@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 
 class Email extends Component {
     render() {
-        const { value, handleChange} = this.props;
+        const { email, handleChange} = this.props;
         return (
             <label htmlFor="email">
             Email:
@@ -11,13 +13,21 @@ class Email extends Component {
               name="email"
               type="email"
               onChange={ handleChange }
-              value={ value }
+              value={ email }
             />
+            <span>
+             { !email.match(/^\S+@\S+$/i)
+              ? ' -email inválido- ' : ' -ok- ' }
+              </span>
           </label>
 
         )
     }
 
+}
+Email.propTypes = {
+    handleChange: PropTypes.func.isRequired,
+    email: PropTypes.string.isRequired,
 }
 
 export default Email;

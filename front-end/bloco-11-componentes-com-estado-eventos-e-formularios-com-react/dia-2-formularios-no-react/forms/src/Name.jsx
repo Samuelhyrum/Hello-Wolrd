@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes  from 'prop-types';
 
 class Name extends Component {
     render(){
-        const {value, handleChange} = this.props;
+        const {name, handleChange} = this.props;
         return (
 
             <label htmlFor="name">
@@ -12,11 +13,17 @@ class Name extends Component {
                 name="name"
                 type="text"
                 onChange={ handleChange }
-                value={ value.toUpperCase() }
+                value={ name.toUpperCase() }
               />
+              <span>
+              { !name.length ? ' -nome inválido- ' : ' -ok- '}
+              </span>
             </label>
         )
     }
 }
-
+Name.propTypes = {
+    handleChange: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
+}
 export default Name;
