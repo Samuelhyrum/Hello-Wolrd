@@ -1,57 +1,85 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Loading from './Loading';
-
-class Dog extends Component {
-  constructor() {
-    super();
-
+class Dog extends React.Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      dogObj: '',
-
+      data: '',
+      name: '',
+      array: [],
     };
-    this.randomDog = this.randomDog.bind(this);
+    this.fetchDog = this.fetchDog.bind(this);
+    this.saveData = this.saveData.bind(this);
   }
 
   componentDidMount() {
-    this.randomDog();
+    // Se já temos uma imagem guardada, vamos mostrá-la em vez de pedir uma nova
+    if (localStorage.namedDogURL) {
+      const parseStorage = JSON.parse(localStorage.namedDogURL);
+      const lastDog = parseStorage[parseStorage.length - 1].message;
+      this.setState({
+        array: parseStorage,
+        data: { message: lastDog },
+      });
+    } else {
+      this.fetchDog();
+    }
   }
-  shouldComponentUpdate(nextProps, nextState){
-    // Não atualize o componente se o doguinho for terrier
-    if(nextState.dogObj.message.includes('terrier')){
-        return false;
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextState.data.message.includes('terrier')) {
+      return false;
     }
     return true;
-}
+  }
 
-componentDidUpdate() {
-    const { dogObj } = this.state;
-        // Guardando a URL do último doguinho no `localStorage`...
-        localStorage.setItem('dogURL', dogObj.message);
-        const dogBreed = dogObj.message.split('/')[4];
-            // ... e mostrando a raça dele usando um `alert`
-alert(dogBreed);
+  componentDidUpdate(prevProps, prevState) {
+    const { data: actualData } = this.state;
+    if (prevState.data !== actualData) {
+      const dogBreed = actualData.message.split('/')[4];
+      alert(dogBreed);
+    }
+  }
 
-}
+  fetchDog() {
+    fetch('https://dog.ceo/api/breeds/image/random')
+      .then((res) => res.json())
+      .then((result) => this.setState({ data: result }));
+  }
 
-  async randomDog() {
-    const request = await fetch('https://dog.ceo/api/breeds/image/random');
-    const requestObj = await request.json();
-    this.setState({
-      dogObj: requestObj,
-    });
+  saveData() {
+    const {
+      data: { message },
+      name,
+      array,
+    } = this.state;
+    // atualizando e guardando a lista inteira de imagens no `localStorage`
+    const dogData = { message, name };
+    const newArray = [...array, dogData];
+    this.setState({ array: newArray });
+    this.setState({ name: '' });
+    localStorage.setItem('namedDogURL', JSON.stringify(newArray));
   }
 
   render() {
-    const { dogObj } = this.state;
+    const { data, name } = this.state;
 
-    if (dogObj === '') return <Loading />;
-
+    if (data === '') return <Loading/>;
     return (
       <div>
         <p>Doguinhos</p>
-        <button type="button" onClick={ this.randomDog }>Novo Doguinho!</button>
+        <button type="button" onClick={ this.fetchDog }>Novo doguinho!</button>
         <div>
-          <img src={ dogObj.message } alt="Random dog" />
+          <input
+            type="text"
+            value={ name }
+            onChange={ (e) => this.setState({ name: e.target.value }) }
+            placeholder="digite o nome do doguinho"
+          />
+          <button type="button" onClick={ this.saveData }>Salvar doguinho!</button>
+        </div>
+        <div>
+          <img src={ data.message } alt={ data.message } />
         </div>
       </div>
     );
