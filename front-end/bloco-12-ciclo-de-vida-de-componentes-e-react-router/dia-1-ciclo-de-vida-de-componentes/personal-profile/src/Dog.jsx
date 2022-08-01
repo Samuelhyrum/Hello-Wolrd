@@ -1,3 +1,74 @@
+// import React, { Component } from 'react';
+// import Loading from './Loading';
+
+// class Dog extends Component {
+//   constructor() {
+//     super();
+
+//     this.state = {
+//       dogObj: '',
+//       name: '',
+
+//     };
+//     this.randomDog = this.randomDog.bind(this);
+//   }
+
+//   componentDidMount() {
+//     this.randomDog();
+//   }
+//   shouldComponentUpdate(nextProps, nextState){
+//     // Não atualize o componente se o doguinho for terrier
+//     if(nextState.dogObj.message.includes('terrier')){
+//         return false;
+//     }
+//     return true;
+// }
+
+// componentDidUpdate() {
+//     const { dogObj } = this.state;
+//         // Guardando a URL do último doguinho no `localStorage`...
+//         localStorage.setItem('dogURL', dogObj.message);
+//         const dogBreed = dogObj.message.split('/')[4];
+//             // ... e mostrando a raça dele usando um `alert`
+// alert(dogBreed);
+
+// }
+
+//   async randomDog() {
+//     const request = await fetch('https://dog.ceo/api/breeds/image/random');
+//     const requestObj = await request.json();
+//     this.setState({
+//       dogObj: requestObj,
+//     });
+//   }
+
+//   render() {
+//     const { dogObj, name } = this.state;
+
+//     if (dogObj === '') return <Loading />;
+
+//     return (
+//       <div>
+//         <p>Doguinhos</p>
+//         <button type="button" onClick={ this.randomDog }>Novo Doguinho!</button>
+//         <div>
+//           <input
+//             type="text"
+//             value={ name }
+//             onChange={ (e) => this.setState({ name: e.target.value }) }
+//             placeholder="digite o nome do doguinho"
+//           />
+//           <button type="button" onClick={ this.saveData }>Salvar doguinho!</button>
+//         </div>
+//         <div>
+//           <img src={ dogObj.message } alt="Random dog" />
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+
+// export default Dog;
 import React from 'react';
 import Loading from './Loading';
 class Dog extends React.Component {
@@ -16,7 +87,7 @@ class Dog extends React.Component {
     // Se já temos uma imagem guardada, vamos mostrá-la em vez de pedir uma nova
     if (localStorage.namedDogURL) {
       const parseStorage = JSON.parse(localStorage.namedDogURL);
-      const lastDog = parseStorage[parseStorage.length - 1].message;
+      const lastDog = parseStorage[parseStorage.length-1].message;
       this.setState({
         array: parseStorage,
         data: { message: lastDog },
