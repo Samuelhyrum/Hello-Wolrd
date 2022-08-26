@@ -1,5 +1,5 @@
 // src/actions/index.js
-import { REGISTER_COSTUMER, LOGIN } from './types';
+import { REGISTER_COSTUMER, LOGIN, DELETE_COSTUMER } from './types';
 
 export const registerCostumer = (costumerData) => ({
   type: REGISTER_COSTUMER,
@@ -9,4 +9,9 @@ export const registerCostumer = (costumerData) => ({
 export const login = (userData) => ({
   type: LOGIN,
   payload: { userData }
+});
+
+export const deleteCostumer = (costumerId) => ({
+  type: DELETE_COSTUMER,
+  payload: { costumerId }
 });
