@@ -8,6 +8,37 @@ const files = [
   'file3.txt',
 ]
 
+
+async function arrayToFile() {
+  const strings = ['Finalmente', 'estou', 'usando', 'Promise.all', '!!!'];
+  
+  const createFilesPromises = strings
+  .map((string, index) => fs.writeFile(`./file${index + 1}.txt`, string));
+
+  await Promise.all(createFilesPromises);
+
+  const fileNames = [
+    'file1.txt',
+    'file2.txt',
+    'file3.txt',
+    'file4.txt',
+    'file5.txt',
+  ];
+
+  const readFilesPromises = fileNames
+  .map((fileName) => fs.readFile(fileName, 'utf-8'));
+
+  const fileContents = await Promise.all(readFilesPromises);
+
+  const newFileContent = fileContents.join(' ');
+
+  await fs.writeFile('./fileAll.txt', newFileContent);
+
+}
+
+arrayToFile() // caso queira esperar a resolução, use o `await` ou `.then`
+
+
 async function main() {
   try {
     const promises = files.map(async (file, index) => {
@@ -39,7 +70,6 @@ async function getFilesSizeSum() {
   
   getFilesSizeSum()
 
-  const fs = require('fs').promises;
 
 // Promise.all([
 //   fs.readFile('file1.txt'),
