@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests/**/**/user.test.js "
   },
   "keywords": [],
   "author": "",
@@ -15,7 +15,12 @@
     "sequelize": "^6.25.8"
   },
   "devDependencies": {
-    "sequelize-cli": "^6.5.2"
+    "chai": "^4.3.7",
+    "chai-http": "^4.3.0",
+    "mocha": "^10.1.0",
+    "sequelize-cli": "^6.5.2",
+    "sequelize-test-helpers": "^1.4.3",
+    "sinon": "^14.0.2"
   },
   "description": ""
 }
