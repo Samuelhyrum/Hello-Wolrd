@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/server.js",
   "scripts": {
-    "test": "mocha tests/**/**/user.test.js "
+    "test": "mocha src/tests/unit/models/*$NAME.test.js --exit"
   },
   "keywords": [],
   "author": "",
