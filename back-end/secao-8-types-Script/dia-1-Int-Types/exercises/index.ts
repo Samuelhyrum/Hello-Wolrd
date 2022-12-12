@@ -37,7 +37,6 @@ console.log(`- Losango com diagonais iguais a 75cm e 25cm: ${Ex.getRhombusArea(7
 
 // ./index.ts
 
-import * as Ex from './exercises';
 
 console.log("A ÁREA DE UM:");
 // ...
@@ -45,3 +44,10 @@ console.log("A ÁREA DE UM:");
 console.log(`- Trapézio com base maior igual a 100cm, base menor igual a 70cm e altura igual a 50cm: ${Ex.getTrapezoidArea(100, 70, 50)}cm²`);
 console.log(`- Trapézio com base maior igual a 75cm, base menor igual a 50cm e altura igual a 35cm: ${Ex.getTrapezoidArea(75, 50, 35)}cm²`);
 console.log(`- Trapézio com base maior igual a 150cm, base menor igual a 120cm e altura igual a 80cm: ${Ex.getTrapezoidArea(150, 120, 80)}cm²`);
+
+console.log("A ÁREA DE UM:");
+// ...
+
+console.log(`- Círculo de raio 10cm: ${Ex.getCircleArea(10)}cm²`);
+console.log(`- Círculo de raio 5cm: ${Ex.getCircleArea(5)}cm²`);
+console.log(`- Círculo de raio 100cm: ${Ex.getCircleArea(100)}cm²`);
