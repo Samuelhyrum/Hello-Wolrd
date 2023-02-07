@@ -1,0 +1,30 @@
+use('cinema')
+db.movies.countDocuments({});
+
+//Exercicio 1
+use('cinema')
+db.movies.updateOne(
+  { title: "Batman" },
+  { $set: { imdbRating: 7.7 } },
+);
+//Exercicio 2
+use('cinema')
+db.movies.updateOne(
+  { title: "Godzilla" },
+  { $set: { budget: 1 } },
+);
+//Exercicio 1
+//Exercicio 1
+//Exercicio 1
+//Exercicio 1
+//Exercicio 1
+//Exercicio 1
+//Exercicio 1
+//Exercicio 1
+//Exercicio 1
+//Exercicio 1
+//Exercicio 1
+//Exercicio 1
+//Exercicio 1
+//Exercicio 1
+//Exercicio 1
