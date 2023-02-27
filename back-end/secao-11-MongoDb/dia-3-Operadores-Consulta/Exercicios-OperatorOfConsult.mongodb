@@ -1,0 +1,139 @@
+//Exercicio 1
+db.movies.find(
+  {
+    category: {
+      $all: ["action", "adventure"]
+    }
+  }
+).pretty();
+
+//Exercicio 2
+db.movies.find(
+  {
+    category: {
+      $all: ["action", "sci-fi"]
+    },
+    imdbRating: { $gt: 7 }
+  }
+).pretty();
+
+//Exercicio 3
+
+db.movies.find(
+  {
+    ratings: {
+      $elemMatch: { $gt: 103 }
+    }
+  },
+  {
+    _id: 0,
+    title: 1,
+    ratings: 1
+  }
+).pretty();
+
+
+//Exercicio 4
+
+db.movies.find(
+  {
+    ratings: {
+      $elemMatch: { $gte: 100, $lte: 105 }
+    }
+  },
+  {
+    _id: 0,
+    title: 1,
+    ratings: 1
+  }
+).pretty();
+
+
+
+//Exercicio 5
+
+db.movies.find(
+  {
+    ratings: {
+      $elemMatch: { $gte: 64, $lte: 105, $mod: [9, 0] }
+    }
+  },
+  {
+    _id: 0,
+    title: 1,
+    ratings: 1
+  }
+).pretty();
+
+
+
+//Exercicio 6
+db.movies.find(
+  {
+    ratings: {
+      $elemMatch: { $gt: 103 }
+    },
+    category: { $all: ["adventure"] }
+  },
+  {
+    _id: 0,
+    title: 1,
+    ratings: 1,
+    category: 1
+  }
+).pretty();
+
+//Exercicio 7
+
+db.movies.find(
+  { category: { $size: 2 } },
+  { _id: 0, title: 1, category: 1 }
+).pretty();
+
+
+//Exercicio 8
+db.movies.find(
+  { ratings: { $size: 4 } },
+  { _id: 0, title: 1, ratings: 1 }
+).pretty();
+
+
+//Exercicio 9
+db.movies.find({
+  budget: { $mod: [5, 0] },
+  category: { $size: 2 }
+}).pretty();
+
+//Exercicio 10
+db.movies.find(
+  {
+    $or: [
+      { category: { $all: ["sci-fi"] } },
+      { ratings: { $elemMatch: { $gt: 199 } } }
+    ]
+  },
+  { _id: 0, title: 1, ratings: 1, category: 1 }
+);
+
+
+//Exercicio 12
+
+db.movies.find(
+  {
+    description: {
+      $regex: /^The/
+    }
+  }
+).pretty();
+
+//Exercicio 13
+
+db.movies.find(
+  {
+    description: {
+      $regex: /humanity.$/
+    }
+  }
+).pretty();
+
+//Exercicio 6
