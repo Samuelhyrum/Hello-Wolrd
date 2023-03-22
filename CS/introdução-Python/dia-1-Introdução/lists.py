@@ -21,3 +21,4 @@ info["recorrente"] = "Sim"
 # Exercício 9
 
 del info["origem"]
+
