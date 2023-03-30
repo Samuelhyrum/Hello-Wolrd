@@ -1,3 +1,6 @@
+from exer3 import validate_email
+import pytest 
+
 def test_username_can_only_contain_letters():
     assert validate_email("aaaa@nomewebsite.ext") is None
 
