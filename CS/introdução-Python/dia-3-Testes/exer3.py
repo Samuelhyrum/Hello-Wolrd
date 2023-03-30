@@ -35,3 +35,5 @@ def validate_email(email):
     if counter > 3:
         raise ValueError("Extension maximum length is 3")
     return None
+
+    
