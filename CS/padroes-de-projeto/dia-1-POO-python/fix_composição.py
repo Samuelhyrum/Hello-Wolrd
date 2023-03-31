@@ -29,7 +29,6 @@ class Pessoa:
 
 ventilador_branco = Ventilador("branco", potencia=250, tensao=220, preco=100)
 pessoa = Pessoa("Maria", saldo_na_conta=2000)
-
 pessoa.comprar_ventilador(ventilador_branco)
 
 print(pessoa)
