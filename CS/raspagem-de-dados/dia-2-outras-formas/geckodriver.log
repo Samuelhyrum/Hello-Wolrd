@@ -268,3 +268,52 @@ WebDriver BiDi listening on ws://127.0.0.1:47431
 console.error: ({})
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileLACTBJ/search.json.mozlz4", (void 0)))
 DevTools listening on ws://127.0.0.1:47431/devtools/browser/4b24b700-1730-4aa1-bf23-d2ffb06e2585
+1681397941407	geckodriver	INFO	Listening on 127.0.0.1:50195
+1681397941410	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... ss" "--remote-debugging-port" "36453" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileMSIdvA"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1681397941688	Marionette	INFO	Marionette enabled
+1681397941695	Marionette	INFO	Listening on port 44503
+Read port: 44503
+WebDriver BiDi listening on ws://127.0.0.1:36453
+1681397941793	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileMSIdvA/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:36453/devtools/browser/2f898546-8ed6-4c0c-9478-976dd938460a
+JavaScript warning: https://pagead2.googlesyndication.com/bg/Bo5p8DbEpWqq_61_uCYPeBu7T3aczz0WnYolkwB_A5I.js line 2 > eval line 3065 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[GFX1-]: Couldn't sanitize RENDERER device: RENOIR
+1681398424363	geckodriver	INFO	Listening on 127.0.0.1:43807
+1681398424878	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... te" "--remote-debugging-port" "37025" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileXi9OuQ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1681398425654	Marionette	INFO	Marionette enabled
+1681398425657	Marionette	INFO	Listening on port 42633
+Read port: 42633
+WebDriver BiDi listening on ws://127.0.0.1:37025
+1681398425813	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileXi9OuQ/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:37025/devtools/browser/b1433f7b-1bd9-4e08-9a49-60d2ad05ee24
+JavaScript warning: https://pagead2.googlesyndication.com/bg/Bo5p8DbEpWqq_61_uCYPeBu7T3aczz0WnYolkwB_A5I.js line 2 > eval line 7215 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[GFX1-]: Couldn't sanitize RENDERER device: RENOIR
+console.error: "Can't start recording from event type: " "paste"
+JavaScript error: resource:///modules/UrlbarController.sys.mjs, line 1158: TypeError: startEventInfo is null
+1681398510039	Marionette	INFO	Stopped listening on port 42633
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 576: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1681398512048	Marionette	INFO	Stopped listening on port 35045
