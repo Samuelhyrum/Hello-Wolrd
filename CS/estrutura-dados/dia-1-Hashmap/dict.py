@@ -35,3 +35,8 @@ print(f"Novo dicionário 1, pós inserção/alteração: {dict1}")
 name = dict1[14]
 del dict1[14]
 print(f"Dicionário 1 pós consulta e deleção: {dict1}")
+
+# Exercício 5
+double = {i: i*2 for i in range(3, 21)}
+
+print(double)
