@@ -35,3 +35,24 @@ print(f"Novo dicionário 1, pós inserção/alteração: {dict1}")
 name = dict1[14]
 del dict1[14]
 print(f"Dicionário 1 pós consulta e deleção: {dict1}")
+
+
+# Exercício 5: Consulte a forma de se criar um dicionário chamado de dict comprehension e crie um dicionário que mapeia inteiros de 3 a 20 para o seu dobro.
+double = {i: i*2 for i in range(3, 21)}
+
+for key in double.keys():
+	if key % 2 is not 0:
+		double[key] = key * 3
+
+print(double)
+
+# Exercício 6: Dada uma string, construa um dicionário com a contagem de cada caractere da palavra. Utilize o pseudocódigo e o exemplo abaixo para se nortear.
+count_chars = {}
+str = "coxinha"
+for char in str:
+	if char not in count_chars:
+		count_chars[char] = 1
+	else:
+		count_chars[char] += 1
+
+print(count_chars)
