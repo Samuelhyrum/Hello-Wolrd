@@ -1,5 +1,5 @@
-export interface Employee {
+export interface Product {
     id?: number
     name: string
-    position: string
+    price: number | null | undefined
 }
