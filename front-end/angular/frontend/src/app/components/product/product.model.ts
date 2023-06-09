@@ -1,5 +1,5 @@
 export interface Product {
-    id?: number | undefined
+    id?: number
     name: string
     price: number | null | undefined
 }
