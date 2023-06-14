@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Toilter</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+    <h1>Toilter</h1>
+    {% if user %}
+    <p>Bem-vind ao Toilter, {{ user }}!</p>
+    {% else %}
+    <p>Bem-vindo ao Toilter!</p>
+    {% endif %}
+
+    <script type='text/javascript' src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+</body>
+</html>
