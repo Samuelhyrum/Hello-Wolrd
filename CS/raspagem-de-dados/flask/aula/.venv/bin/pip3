@@ -1,4 +1,4 @@
-#!/home/samuelhyrum/trybe-exercicios/CS/raspagem-de-dados/flask/.venv/bin/python3
+#!/home/samuelhyrum/trybe-exercicios/CS/raspagem-de-dados/flask/aula/.venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

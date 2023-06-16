@@ -9,4 +9,6 @@ app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+
+from app.models import tables, forms
 from app.controllers import default
