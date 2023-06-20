@@ -19,6 +19,4 @@ login_manager.init_app(app)
 from app.models import tables, forms
 from app.controllers import default
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.get(user_id)
+
