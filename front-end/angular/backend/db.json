@@ -16,9 +16,14 @@
       "price": 7520.89
     },
     {
-      "name": "Lapis Preto Básico",
+      "name": "Lapis Branco Básico",
       "price": 1.5,
       "id": 4
+    },
+    {
+      "name": "JHULY",
+      "price": "1000000000000000000000000",
+      "id": 5
     }
   ]
 }
