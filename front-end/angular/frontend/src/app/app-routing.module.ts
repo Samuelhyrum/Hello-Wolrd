@@ -1,3 +1,4 @@
+import { LoginComponent } from './views/login/login.component';
 import { ProductDeleteComponent } from './components/product/product-delete/product-delete.component';
 import { ProductUpdateComponent } from './components/product/product-update/product-update.component';
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
@@ -7,7 +8,17 @@ import { HomeComponent } from './views/home/home.component';
 import { ProductCrudComponent } from './views/product-crud/product-crud.component';
 
 
-const routes: Routes = [{
+const routes: Routes = [
+  // {
+  //   path: '',
+  //   redirectTo: 'login',
+  //   pathMatch: 'full'
+  // },
+  // {
+  //   path: 'login',
+  //   component: LoginComponent
+  // },
+  {
   path: "",
   component: HomeComponent
 },{
