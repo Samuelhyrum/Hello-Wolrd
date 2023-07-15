@@ -9,19 +9,19 @@ import { ProductCrudComponent } from './views/product-crud/product-crud.componen
 
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: 'login',
-  //   pathMatch: 'full'
-  // },
-  // {
-  //   path: 'login',
-  //   component: LoginComponent
-  // },
   {
-  path: "",
-  component: HomeComponent
-},{
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  },{
   path: "products",
   component:ProductCrudComponent
 }, {
