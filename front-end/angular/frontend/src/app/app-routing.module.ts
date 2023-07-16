@@ -6,22 +6,23 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
 import { ProductCrudComponent } from './views/product-crud/product-crud.component';
+import { NavComponent } from './components/template/nav/nav.component';
 
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent,
+  outlet: 'loginOutlet'},
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
   {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'home',
-    component: HomeComponent
-  },{
+    path: '',
+    // component: NavComponent,
+    children: [
+      { path: 'home', component: HomeComponent },
+      {
   path: "products",
   component:ProductCrudComponent
 }, {
@@ -33,7 +34,8 @@ const routes: Routes = [
 }, {
   path: "products/delete/:id",
   component: ProductDeleteComponent
-}];
+},
+]}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
