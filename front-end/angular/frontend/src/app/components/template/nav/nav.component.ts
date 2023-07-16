@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -7,12 +7,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent {
-  showLogin = false;
+  // currentRoute: string = '';
 
-  constructor(private router: Router) {}
+  // constructor(private router: Router) {}
 
-  goToLogin(): void {
-    this.showLogin = true;
-    this.router.navigate([{ outlets: { loginOutlet: ['login'] } }]);
-  }
+  // ngOnInit() {
+  //   this.router.events.subscribe((event) => {
+  //     if (event instanceof NavigationEnd) {
+  //       this.currentRoute = event.url;
+  //     }
+  //   });
+  // }
+
+  // isLoginRoute(): boolean {
+  //   return this.currentRoute === '/login';
+  // }
 }

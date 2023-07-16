@@ -16,10 +16,8 @@
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content class="content">
-        <!-- ... conteúdo principal -->
-        <button (click)="goToLogin()">Login</button> <!-- Botão para navegar para a rota de login -->
-        <ng-container *ngIf="showLogin"> <!-- Renderiza o componente de login condicionalmente -->
-            <router-outlet name="loginOutlet"></router-outlet> <!-- outlet secundário para o componente de login -->
+        <ng-container>
+            <router-outlet></router-outlet>
         </ng-container>
     </mat-sidenav-content>
 </mat-sidenav-container>
