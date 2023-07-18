@@ -1,6 +1,7 @@
 import { HeaderService } from './../../components/template/header/header.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginData } from './login-data.model';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,15 @@ export class LoginComponent {
         icon: 'login',
         routeUrl: '/login'
       }
+  }
+
+  log: LoginData = {
+    username: '',
+    password: ''
+  }
+
+  cancel(): void {
+    this.router.navigate([''])
   }
 
   login(): void {

@@ -1,1 +1,21 @@
-<h1>login at works</h1>
+<mat-card>
+    <mat-card-title></mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="User" 
+            [(ngModel)]="log.username" name="username">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Password" 
+            [(ngModel)]="log.password" name="password">
+        </mat-form-field>
+    </form>
+</mat-card>
+<button mat-raised-button (click)="login()" color="primary">
+    To enter
+</button>
+
+<button mat-raised-button (click)="cancel()"
+color="accent">
+    Cancelar
+</button>
