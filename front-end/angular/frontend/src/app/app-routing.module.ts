@@ -7,10 +7,13 @@ import { ProductUpdateComponent } from './components/product/product-update/prod
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
 import { ProductCrudComponent } from './views/product-crud/product-crud.component';
 import { NavComponent } from './components/template/nav/nav.component';
+import { UserCreateComponent } from './components/user/user-create/user-create.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redireciona para a rota de login por padrão
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'register', component: UserCreateComponent },
+   // Redireciona para a rota de login por padrão
   {
     path: '',
     component: NavComponent,

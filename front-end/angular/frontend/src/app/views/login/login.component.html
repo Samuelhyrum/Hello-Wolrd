@@ -2,20 +2,20 @@
     <mat-card-title></mat-card-title>
     <form>
         <mat-form-field>
-            <input matInput placeholder="User" 
-            [(ngModel)]="log.username" name="username">
+            <input matInput placeholder="Usuario" 
+            [(ngModel)]="user.username" name="username">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Password" 
-            [(ngModel)]="log.password" name="password">
+            <input matInput placeholder="Senha" 
+            [(ngModel)]="user.password" name="password">
         </mat-form-field>
     </form>
 </mat-card>
 <button mat-raised-button (click)="login()" color="primary">
-    To enter
+    Iniciar Sessão
 </button>
 
-<button mat-raised-button (click)="cancel()"
+<button mat-raised-button (click)="createUser()"
 color="accent">
-    Cancelar
+    Cadastre-se
 </button>
