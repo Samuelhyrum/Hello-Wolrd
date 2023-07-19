@@ -1,1 +1,21 @@
-<p>user-create works!</p>
+<mat-card>
+    <mat-card-title></mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Usuario" 
+            [(ngModel)]="user.username" name="username">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Senha" 
+            [(ngModel)]="user.password" name="password">
+        </mat-form-field>
+    </form>
+</mat-card>
+<button mat-raised-button (click)="login()" color="primary">
+    Iniciar Sessão
+</button>
+
+<button mat-raised-button (click)="createUser()"
+color="accent">
+    Cadastre-se
+</button>
