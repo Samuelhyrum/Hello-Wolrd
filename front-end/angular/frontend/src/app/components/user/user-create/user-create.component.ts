@@ -27,7 +27,7 @@ export class UserCreateComponent {
     this.router.navigate(['/register'])
   }
 
-  login(): void {
+  newUser(): void {
     // Lógica de autenticação
     // ...
 
