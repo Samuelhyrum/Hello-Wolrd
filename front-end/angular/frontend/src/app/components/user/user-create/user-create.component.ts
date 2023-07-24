@@ -1,3 +1,4 @@
+import { UserService } from './../user.service';
 import { HeaderService } from './../../template/header/header.service';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
@@ -9,7 +10,7 @@ import { UserData } from '../user-data.model';
   styleUrls: ['./user-create.component.css']
 })
 export class UserCreateComponent {
-  constructor(private router: Router, private headerService: HeaderService) {
+  constructor(private router: Router, private headerService: HeaderService, private userService: UserService) {
     headerService.headerData = {
         title: 'Register',
         icon: 'create',
@@ -28,10 +29,7 @@ export class UserCreateComponent {
   }
 
   newUser(): void {
-    // Lógica de autenticação
-    // ...
-
-    // Redirecionar para as rotas dentro do router-outlet após o login
-    this.router.navigate(['/home']);
+    this.userService.showMessage('Novo usuario criado!')
+    this.router.navigate(['/login']);
   }
 }
