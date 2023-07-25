@@ -24,12 +24,10 @@ export class UserCreateComponent {
     password: ''
   }
 
-  createUser(): void {
-    this.router.navigate(['/register'])
-  }
-
   newUser(): void {
-    this.userService.showMessage('Novo usuario criado!')
-    this.router.navigate(['/login']);
+    this.userService.create(this.user).subscribe(() => {
+      this.userService.showMessage('Novo usuario criado!')
+      this.router.navigate(['/login']);
+    })  
   }
 }
