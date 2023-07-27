@@ -39,4 +39,8 @@ export class UserService {
     return this.http.get<UserData[]>(this.baseUrl)
   }
 
+  readById(id: string): Observable<UserData> {
+    const url = `${this.baseUrl}/${id}`
+    return this.http.get<UserData>(url)
+  }
 }
