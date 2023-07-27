@@ -35,4 +35,8 @@ export class UserService {
     return EMPTY;
   }
 
+  read(): Observable<UserData[]> {
+    return this.http.get<UserData[]>(this.baseUrl)
+  }
+
 }
