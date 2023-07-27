@@ -35,4 +35,22 @@ export class UserService {
     return EMPTY;
   }
 
+  read(): Observable<UserData[]> {
+    return this.http.get<UserData[]>(this.baseUrl)
+  }
+
+  readById(id: string): Observable<UserData> {
+    const url = `${this.baseUrl}/${id}`
+    return this.http.get<UserData>(url)
+  }
+
+  update(product: UserData): Observable<UserData> {
+    const url = `${this.baseUrl}/${product.id}`
+    return this.http.put<UserData>(url, product)
+  }
+
+  delete(id: number | undefined): Observable<UserData> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.delete<UserData>(url)
+  }
 }
