@@ -44,6 +44,11 @@ export class UserService {
     return this.http.get<UserData>(url)
   }
 
+  readByUsername(username: string): Observable<UserData> {
+    const url = `${this.baseUrl}?username=${username}`;
+    return this.http.get<UserData>(url);
+  }
+
   update(product: UserData): Observable<UserData> {
     const url = `${this.baseUrl}/${product.id}`
     return this.http.put<UserData>(url, product)

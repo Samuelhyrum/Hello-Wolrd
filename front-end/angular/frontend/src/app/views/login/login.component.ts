@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/components/user/auth/AuthService';
+import { UserService } from 'src/app/components/user/user.service';
 import { UserData } from '../../components/user/user-data.model';
 
 @Component({
@@ -9,7 +9,7 @@ import { UserData } from '../../components/user/user-data.model';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, private userService: UserService) {}
 
   user: UserData = {
     username: '',
@@ -21,15 +21,13 @@ export class LoginComponent {
   }
 
   login(): void {
-    // Chamar o serviço de autenticação
-    this.authService.login(this.user.username, this.user.password).subscribe(
-      (response) => {
-        // Verificar se o login foi bem-sucedido (aqui você pode analisar a resposta da API)
-        if (response.success) {
-          // Redirecionar para as rotas dentro do router-outlet após o login
+    this.userService.readByUsername(this.user.username).subscribe(
+      (user) => {
+        if (user && user.password === this.user.password) {
+          // Credenciais válidas, fazer o redirecionamento
           this.router.navigate(['/home']);
         } else {
-          // Exibir mensagem de erro de login inválido (opcional)
+          // Credenciais inválidas, exibir mensagem de erro (opcional)
           alert('Login inválido. Verifique suas credenciais.');
         }
       },
