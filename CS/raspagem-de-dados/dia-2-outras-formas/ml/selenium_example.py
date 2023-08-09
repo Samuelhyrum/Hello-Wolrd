@@ -53,6 +53,13 @@ def pesquisar_e_obter_links_e_imagens(item_pesquisado, id):
             nmFoto = img_src.split("/")[-1]
 
             # Insere a imagem usando o endpoint fornecido
+
+            mFoto = img_src.split("/")[2]
+            print(mFoto)
+            
+            foto = f"{mFoto}/{nmFoto}"
+
+            print(foto)
             insert_imagem_api("h_srv_prontocarcascavel", img_src, id, "horizontal", nmFoto)
 
         except:
@@ -65,9 +72,10 @@ def pesquisar_e_obter_links_e_imagens(item_pesquisado, id):
 
 # Função para fazer o insert da imagem na API usando o endpoint fornecido
 def insert_imagem_api(nomeBase, foto, idServ, posiscao, nmFoto):
-    url_insert_api = f"https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/InsertFoto/{nomeBase}/{foto}/{idServ},{posiscao}/{nmFoto}"
+    url_insert_api = f"https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/InsertFoto/{nomeBase}/{foto}/{idServ}/{posiscao}/{nmFoto}"
+    # https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/InsertFoto/h_srv_prontocarcascavel/1/3227/h/h
     # response_insert = requests.post(url_insert_api)
-
+    print(foto)
     print(url_insert_api)
 
     # if response_insert.status_code == 200:
