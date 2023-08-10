@@ -55,11 +55,7 @@ def pesquisar_e_obter_links_e_imagens(item_pesquisado, id):
             # Insere a imagem usando o endpoint fornecido
 
             mFoto = img_src.split("/")[2]
-            print(mFoto)
-            
-            foto = f"{mFoto}/{nmFoto}"
 
-            print(foto)
             insert_imagem_api("h_srv_prontocarcascavel", img_src, id, "horizontal", nmFoto)
 
         except:
