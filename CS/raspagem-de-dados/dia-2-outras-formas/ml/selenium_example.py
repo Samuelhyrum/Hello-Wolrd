@@ -52,11 +52,9 @@ def pesquisar_e_obter_links_e_imagens(item_pesquisado, id):
             # Monta a URL da foto a partir do link final do src da imagem
             nmFoto = img_src.split("/")[-1]
 
-            # Insere a imagem usando o endpoint fornecido
-
-            mFoto = img_src.split("/")[2]
-
-            insert_imagem_api("h_srv_prontocarcascavel", img_src, id, "horizontal", nmFoto)
+            idSrv = str(id)
+            
+            insert_imagem_api( img_src, idSrv, "horizontal", nmFoto)
 
         except:
             print(f"Não foi possível encontrar o link ou obter o atributo src para o item '{item_pesquisado}'.")
@@ -67,21 +65,23 @@ def pesquisar_e_obter_links_e_imagens(item_pesquisado, id):
 
 
 # Função para fazer o insert da imagem na API usando o endpoint fornecido
-def insert_imagem_api(nomeBase, foto, idServ, posiscao, nmFoto):
-    url_insert_api = f"https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/InsertFoto/{nomeBase}/{foto}/{idServ}/{posiscao}/{nmFoto}"
-    # https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/InsertFoto/h_srv_prontocarcascavel/1/3227/h/h
-    # response_insert = requests.post(url_insert_api)
-    print(foto)
-    print(url_insert_api)
+def insert_imagem_api(url, idSrv, posicao, nome):
+    url_insert_api = f"https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/InsertFoto/h_srv_prontocarcascavel"
 
-    # if response_insert.status_code == 200:
-    #     print(f"Inserção da imagem para '{nomeBase}' realizada com sucesso!")
-    # else:
-    #     print(f"Falha ao inserir a imagem para '{nomeBase}'. Status code: {response_insert.status_code}")
+    body = {
+        "nome": nome,
+        "idSrv": idSrv,
+        "posicao": posicao,
+        "url": url
+    }
+    response_insert = requests.post(url_insert_api, json=body)
+ 
 
+    if response_insert.status_code == 200:
+        print(f"Inserção da imagem para '{idSrv}' realizada com sucesso!")
+    else:
+        print(f"Falha ao inserir a imagem para '{idSrv}'. Status code: {response_insert.status_code}")
 
-# URL da API
-import requests
 
 url_api = "https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/ProdutosSemImagem/h_srv_prontocarcascavel"
 
