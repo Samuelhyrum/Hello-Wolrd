@@ -86,7 +86,7 @@ def insert_imagem_api(url, idSrv, posicao, nome):
         "posicao": posicao,
         "url": url
     }
-   print(body)
+
    response_insert = requests.post(url_insert_api, json=body) 
 
    if response_insert.status_code == 200:
