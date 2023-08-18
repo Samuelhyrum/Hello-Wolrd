@@ -73,9 +73,8 @@ def pesquisar_e_obter_links_e_imagens(item_pesquisado, id):
             chrome.quit()  # Certifique-se de fechar o navegador após um erro
 
     else:
-        print("Não existem pelo menos 3 elementos <div> na página.")
+        print("Imagem foi encontrada e cadastrada")
         
-#IDs com erro: [3860, 4140, 4490, 4588, 4666, 4669, 4673, 4708, 4716, 4741, 4844, 4845, 4846, 4850, 4851, 4852, 4854, 4855, 5005, 5010]
 
 # Função para fazer o insert da imagem na API usando o endpoint fornecido
 def insert_imagem_api(url, idSrv, posicao, nome):
