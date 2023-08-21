@@ -40,7 +40,7 @@ def pesquisar_e_obter_links_e_imagens(item_pesquisado, id):
 
     # Verifica se existem pelo menos 3 elementos <div> na página
         if len(div_elements) >= 3:
-                # Pega o terceiro elemento <div> (índice 2, pois a contagem começa em zero)
+                # Pega o terceiro elemento <div> (índice 2, pois a contagem começa em zero
               third_div = div_elements[2]
 
       
