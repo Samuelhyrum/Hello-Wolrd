@@ -12,7 +12,6 @@ from selenium.webdriver.common.action_chains import ActionChains
 global ids_com_erro
 ids_com_erro = []
 
-# Função para pesquisar e obter links e imagens
 def pesquisar_e_obter_links_e_imagens(item_pesquisado, id):
     # Configuração do navegador
     options = webdriver.ChromeOptions()
