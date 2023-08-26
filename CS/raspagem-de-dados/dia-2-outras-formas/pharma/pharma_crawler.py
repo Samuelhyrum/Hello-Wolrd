@@ -12,13 +12,14 @@ from selenium.webdriver.common.action_chains import ActionChains
 # Declarar a variável global ids_com_erro
 global cont
 global ids_com_erro
-global prescricao
 ids_com_erro = []
 cont = 0
-prescricao_padrao = 'Sem prescrição'
 
 
 def pesquisar_remedios_ean(ean_remedio):
+    global prescricao_padrao
+    prescricao_padrao = 'Sem prescrição'
+
     # Configuração do navegador
     options = webdriver.ChromeOptions()
     options.add_argument('--ignore-certificate-error')
@@ -59,28 +60,17 @@ def pesquisar_remedios_ean(ean_remedio):
         try:
             
             prescricao = chrome.find_element(By.CLASS_NAME, 'new-product-header__leaflet-resume__text').text
-            
-            # if not prescricao:
-            #     print("Prescrição está presente no site, não prosseguir")
-
-            #     div_img = chrome.find_element(By.CLASS_NAME, 'new-product-header__top-side__top-left-side')
-            #     img = div_img.find_element(By.TAG_NAME, 'img').get_attribute('src')
-            #     insert_imagem_api(h1_text,prescricao_padrao,img)
-
-            #     chrome.quit()  # Certifique-se de fechar o navegador após um erro
 
         except Exception as e:
-            print(f"Erro ao processar o item '{ean_remedio}': {e}", prescricao_padrao)
-
-            # chrome.quit()  # Certifique-se de fechar o navegador após um erro
-
-        else:
-            prescricao_padrao = prescricao
+            print(f"Erro ao processar o item '{ean_remedio}': {e}")
             div_img = chrome.find_element(By.CLASS_NAME, 'new-product-header__top-side__top-left-side')
             img = div_img.find_element(By.TAG_NAME, 'img').get_attribute('src')
             insert_imagem_api(h1_text,prescricao_padrao,img)
 
-            print("Imagem foi encontrada e cadastrada")
+        else:
+            div_img = chrome.find_element(By.CLASS_NAME, 'new-product-header__top-side__top-left-side')
+            img = div_img.find_element(By.TAG_NAME, 'img').get_attribute('src')
+            insert_imagem_api(h1_text,prescricao,img)
 
     except Exception as e:
         print(f"Erro ao processar o item '{ean_remedio}': {e}")
@@ -99,6 +89,8 @@ def insert_imagem_api(nome, prescricao, img):
      }
     
     print(body)
+    print("Imagem foi encontrada e cadastrada")
+
 
 #    response_insert = requests.post(url_insert_api, json=body) 
 
