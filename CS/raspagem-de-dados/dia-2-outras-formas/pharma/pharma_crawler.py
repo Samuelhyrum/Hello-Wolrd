@@ -87,7 +87,7 @@ def pesquisar_remedios_ean(ean_remedio):
             descricao = 'Sem descrição'
         
         try:
-            insert_imagem_api(h1_text, prescricao, imagem, descricao)
+            insert_imagem_api(h1_text, prescricao, imagem, descricao, ean_remedio)
             cont += 1
             print("Imagem foi encontrada e cadastrada")
         except Exception as e:
@@ -101,14 +101,15 @@ def pesquisar_remedios_ean(ean_remedio):
         chrome.quit()
 
 # Função para fazer o insert da imagem na API usando o endpoint fornecido
-def insert_imagem_api(nome, prescricao, img, descricao):
+def insert_imagem_api(nome, prescricao, img, descricao, ean):
     # Código para inserção na API aqui
     #    url_insert_api = f"https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/InsertFoto/h_srv_prontocarcascavel"
     body = {
          "nome": nome,
          "prescricao": prescricao,
          "img": img,
-         "descricao": descricao
+         "descricao": descricao,
+         "gtin": ean
      }
     
     print(body)
