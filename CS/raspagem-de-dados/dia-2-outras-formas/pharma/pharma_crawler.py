@@ -103,7 +103,8 @@ def pesquisar_remedios_ean(ean_remedio):
 # Função para fazer o insert da imagem na API usando o endpoint fornecido
 def insert_imagem_api(nome, prescricao, img, descricao, ean):
     # Código para inserção na API aqui
-    #    url_insert_api = f"https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/InsertFoto/h_srv_prontocarcascavel"
+    
+    url_insert_api = f"https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/InsertFoto/h_srv_prontocarcascavel"
     body = {
          "nome": nome,
          "prescricao": prescricao,
@@ -113,13 +114,13 @@ def insert_imagem_api(nome, prescricao, img, descricao, ean):
      }
     
     print(body)
-
-#    response_insert = requests.post(url_insert_api, json=body) 
-
-#    if response_insert.status_code == 200:
-#     print(f"Inserção da imagem para '{idSrv}' realizada com sucesso!")
-#    else:
-#     print(f"Falha ao inserir a imagem para '{idSrv}'. Status code: {response_insert.status_code}")
+    
+    response_insert = requests.post(url_insert_api, json=body) 
+    
+    if response_insert.status_code == 200:
+        print(f"Inserção da imagem para '{ean}' realizada com sucesso!")
+    else:
+        print(f"Falha ao inserir a imagem para '{ean}'. Status code: {response_insert.status_code}")
 
 url_api = "https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/RetornaEan"
 
