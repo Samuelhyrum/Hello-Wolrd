@@ -104,7 +104,7 @@ def pesquisar_remedios_ean(ean_remedio):
 def insert_imagem_api(nome, prescricao, img, descricao, ean):
     # Código para inserção na API aqui
     
-    url_insert_api = f"https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/InsertFoto/h_srv_prontocarcascavel"
+    url_insert_api = f"https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao//InsertRaspagem/h_srv_pharmaelevar"
     body = {
          "nome": nome,
          "prescricao": prescricao,
