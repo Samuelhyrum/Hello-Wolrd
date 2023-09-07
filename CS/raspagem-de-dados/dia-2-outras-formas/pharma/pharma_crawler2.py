@@ -12,17 +12,15 @@ global ids_com_erro
 ids_com_erro = []
 
 def pesquisar_remedios_ean(ean_remedio):
-    # global prescricao
-    # global descricao
-    # global imagem
-    # global cont
-    # cont = 0
+    global category_name
+
 
     # Configuração do navegador
     options = webdriver.ChromeOptions()
     options.add_argument('--ignore-certificate-error')
     options.add_argument('--ignore-ssl-error=yes')
     options.add_argument('--start-maximized')
+    # options.add_argument("--headless=new")
     # options.add_argument('--headless')  # Adiciona esta linha para executar em modo headless
 
     # Criação de uma instância de navegador utilizando o Chrome
@@ -36,30 +34,23 @@ def pesquisar_remedios_ean(ean_remedio):
         search_input = chrome.find_element(By.NAME, "searchHeader")
         search_input.send_keys(ean_remedio)
         search_input.send_keys(Keys.ENTER)
-        sleep(3)
+        sleep(10)
 
-        # Encontrar o H1, caso não encontre gera um erro
-        h1_text = chrome.find_element(By.TAG_NAME, 'h1')
 
         try:
-            if h1_text == ean_remedio:
-                print("Texto do elemento h1 corresponde ao código EAN, não prosseguir")
-                chrome.quit()
+            sleep(4)
+            category = chrome.find_elements(By.CLASS_NAME, 'pulso-checkbox__label-text')
+            if category:
+                category_name = category[1].text
+            else:
+                 category_name = 'Sem categoria'
         except Exception as e:
             print(f"Erro ao processar o item '{ean_remedio}': {e}")
-            chrome.quit()
-
-        try:
-            category = chrome.find_element(By.CLASS_NAME, 'pulso-checkbox__label-text')
-            category_name = category.text
-        except Exception as e:
-            print(f"Erro ao processar o item '{ean_remedio}': {e}")
-            imagem = 'Sem imagem'
+            category_name = 'Sem categoria'
         
         try:
-            # insert_imagem_api(h1_text, prescricao, imagem, category_name, ean_remedio)
-            cont += 1
-            print("Imagem foi encontrada e cadastrada")
+            insert_imagem_api(category_name, ean_remedio)
+            print("Categoria foi encontrada e cadastrada")
         except Exception as e:
             print(f"Erro ao processar o item '{ean_remedio}': {e}")            
         finally:
@@ -71,14 +62,11 @@ def pesquisar_remedios_ean(ean_remedio):
         chrome.quit()
 
 # Função para fazer o insert da imagem na API usando o endpoint fornecido
-def insert_imagem_api(nome, prescricao, img, descricao, ean):
+def insert_imagem_api(descricao, ean):
     # Código para inserção na API aqui
     
     # url_insert_api = f"https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao//InsertRaspagem/h_srv_pharmaelevar"
     body = {
-         "nome": nome,
-         "prescricao": prescricao,
-         "img": img,
          "descricao": descricao,
          "gtin": ean
      }
@@ -92,7 +80,7 @@ def insert_imagem_api(nome, prescricao, img, descricao, ean):
 #     else:
 #         print(f"Falha ao inserir a imagem para '{ean}'. Status code: {response_insert.status_code}")
 
-# url_api = "https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/RetornaEan"
+url_api = "https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/RetornaEan"
 
 # Requisição GET para a API para obter os produtos sem imagem
 # response = requests.get(url_api)
@@ -101,13 +89,11 @@ def insert_imagem_api(nome, prescricao, img, descricao, ean):
 # if response.status_code == 200:
     # Converte o conteúdo JSON da resposta para um dicionário Python
     # data = response.json()
-    data = [
-    '75044',
-    '66715']
+data = ['75068','75044','66715']
     # Percorre os itens pesquisados
-    for item in data:
+for item in data:
         # Chama a função para pesquisar
-        pesquisar_remedios_ean(item)
-    print("IDs com erro: '{ids_com_erro}', quantidade de cadastrados corretamente: '{cont}'")  # Exibe os IDs com erro após o loop
-# else:
-#     print("Falha ao obter os dados da API.")
+    pesquisar_remedios_ean(item)
+    print("IDs com erro:" , ids_com_erro)  # Exibe os IDs com erro após o loop
+else:
+    print("Falha ao obter os dados da API.")
