@@ -67,9 +67,12 @@ def insert_imagem_api(descricao, ean):
     
     url_insert_api = f"https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/InsertCategoria/h_srv_farmasantaluziafortaleza/{ean}"
     body = {
+         "id": 0,
          "descricao": descricao,
-     }
-    
+         "imagem": "string",
+         "status": "string",
+         "dscLonga": "teste"
+}
     print(body)
     
     response_insert = requests.post(url_insert_api, json=body) 
