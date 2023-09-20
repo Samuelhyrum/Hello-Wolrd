@@ -1,29 +1,29 @@
-<?php
-// Dados de conexão ao banco de dados
-$servername = "localhost"; // Host do MySQL
-$username = "root"; // Nome de usuário do MySQL
-$password = "password"; // Senha do MySQL
+    <?php
+    // Dados de conexão ao banco de dados
+    $servername = "localhost"; // Host do MySQL
+    $username = "root"; // Nome de usuário do MySQL
+    $password = "password"; // Senha do MySQL
 
-// Cria uma conexão ao MySQL
-$conn = new mysqli($servername, $username, $password);
+    // Cria uma conexão ao MySQL
+    $conn = new mysqli($servername, $username, $password);
 
-// Verifica a conexão
-if ($conn->connect_error) {
-    die("Erro na conexão: " . $conn->connect_error);
-}
+    // Verifica a conexão
+    if ($conn->connect_error) {
+        die("Erro na conexão: " . $conn->connect_error);
+    }
 
-// Nome do banco de dados que você deseja criar
-$dbname = "php_db";
+    // Nome do banco de dados que você deseja criar
+    $dbname = "php_db";
 
-// SQL para criar o novo banco de dados
-$sql = "CREATE DATABASE $dbname";
+    // SQL para criar o novo banco de dados
+    $sql = "CREATE DATABASE $dbname";
 
-if ($conn->query($sql) === TRUE) {
-    echo "Banco de dados criado com sucesso!";
-} else {
-    echo "Erro ao criar o banco de dados: " . $conn->error;
-}
+    if ($conn->query($sql) === TRUE) {
+        echo "Banco de dados criado com sucesso!";
+    } else {
+        echo "Erro ao criar o banco de dados: " . $conn->error;
+    }
 
-// Fecha a conexão
-$conn->close();
-?>
+    // Fecha a conexão
+    $conn->close();
+    ?>
