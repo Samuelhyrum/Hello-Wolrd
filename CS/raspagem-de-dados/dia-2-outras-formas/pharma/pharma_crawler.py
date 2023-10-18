@@ -25,7 +25,6 @@ def pesquisar_remedios_ean(ean_remedio):
     options.add_argument('--start-maximized')
     # options.add_argument('--headless')  # Adiciona esta linha para executar em modo headless
 
-    # Criação de uma instância de navegador utilizando o Chrome
     chrome = webdriver.Chrome(options=options)
 
     try:
