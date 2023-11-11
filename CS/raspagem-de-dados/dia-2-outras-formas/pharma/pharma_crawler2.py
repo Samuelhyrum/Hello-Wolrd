@@ -82,7 +82,7 @@ def insert_imagem_api(descricao, ean):
     else:
         print(f"Falha ao inserir a imagem para '{ean}'. Status code: {response_insert.status_code}")
 
-url_api = "https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/RetornaEan/h_srv_farmasantaluziafortaleza"
+url_api = "https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/RetornaEan/f_srv_socfarm"
 
 # Requisição GET para a API para obter os produtos sem imagem
 response = requests.get(url_api)

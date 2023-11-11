@@ -28,7 +28,7 @@ def pesquisar_remedios_ean(ean_remedio):
     chrome = webdriver.Chrome(options=options)
 
     try:
-        # Requisição para a página do Mercado Livre com o item pesquisado
+
         chrome.get("https://consultaremedios.com.br/")
         sleep(3)
 
