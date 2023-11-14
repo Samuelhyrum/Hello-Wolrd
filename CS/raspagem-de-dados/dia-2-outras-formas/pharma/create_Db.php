@@ -1,5 +1,4 @@
     <?php
-    // Dados de conexão ao banco de dados
     $servername = "localhost"; // Host do MySQL
     $username = "root"; // Nome de usuário do MySQL
     $password = "password"; // Senha do MySQL
