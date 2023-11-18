@@ -11,7 +11,7 @@
         die("Erro na conexão: " . $conn->connect_error);
     }
 
-    // Nome do banco de dados que você deseja criar
+
     $dbname = "php_db";
 
     // SQL para criar o novo banco de dados
