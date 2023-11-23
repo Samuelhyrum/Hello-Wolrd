@@ -29,7 +29,7 @@ def pesquisar_remedios_nome(name_remedio, product_gtin):
     user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
     options = webdriver.ChromeOptions()
     service = ChromeService(executable_path=ChromeDriverManager().install())
-    options.add_argument('--headless=new')
+    # options.add_argument('--headless=new')
     options.add_argument(f"user-agent={user_agent}")
     options.add_argument('--start-maximized')
     options.add_argument('--ignore-certificate-error')
@@ -50,28 +50,22 @@ def pesquisar_remedios_nome(name_remedio, product_gtin):
         search_input.send_keys(Keys.ENTER)
         sleep(3)
 
-
-        # Encontrar o H1 e pegar o texto correspondente
-        h1_text = chrome.find_element(By.TAG_NAME, 'h1').text
-        print(h1_text)
-
         try:
-            if h1_text == name_remedio:
-                descricao_element = chrome.find_element(By.CLASS_NAME, 'result-item__image-wrapper')
-                link_element = descricao_element.find_element(By.TAG_NAME, "a")
-                actions = ActionChains(chrome)
-                actions.move_to_element(link_element).perform()
-                chrome.execute_script("arguments[0].click();", link_element)
-                h1_text = chrome.find_element(By.TAG_NAME, 'h1').text
-                print("Texto do elemento h1 corresponde ao código EAN ou possui varios cards")
+            descricao_element = chrome.find_element(By.CLASS_NAME, 'img-prateleira')
+            print(descricao_element)
+            link_element = descricao_element.find_element(By.TAG_NAME, "a")
+            actions = ActionChains(chrome)
+            actions.move_to_element(link_element).perform()
+            chrome.execute_script("arguments[0].click();", link_element)
+            sleep(2)
         except Exception as e:
-            print(f"Erro ao processar o item '{name_remedio}': {e}")
+            print(f"Erro ao acessar o card do item '{name_remedio}': {e}")
         
         try:
-            div_img = chrome.find_element(By.CLASS_NAME, 'new-product-header__top-side__top-left-side')
+            div_img = chrome.find_element(By.CLASS_NAME, 'zoomPad')
             imagem = div_img.find_element(By.TAG_NAME, 'img').get_attribute('src')
         except Exception as e:
-            print(f"Erro ao processar o item '{name_remedio}': {e}")
+            print(f"Erro ao acessar imagem do item '{name_remedio}': {e}")
             imagem = 'Sem imagem'
 
         try:
@@ -83,30 +77,17 @@ def pesquisar_remedios_nome(name_remedio, product_gtin):
             prescricao = 'Sem prescrição'
 
         try:
-            descricao_element = chrome.find_element(By.CLASS_NAME, 'what-is-it-for')
-            link_element = descricao_element.find_element(By.TAG_NAME, "a")
-            actions = ActionChains(chrome)
-            actions.move_to_element(link_element).perform()
-
-            chrome.execute_script("arguments[0].click();", link_element)
-
-            wait = WebDriverWait(chrome, 10)
-            
-            div_element = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '.panel-body.text-content')))
-            p_element =  div_element.find_element(By.TAG_NAME, 'p')
-            descricao = p_element.text
+            descricao_element = chrome.find_element(By.CLASS_NAME, 'productDescription')
+            descricao = descricao_element.text
 
 
         except Exception as e:
-            print(f"Erro ao processar o item '{name_remedio}': {e}")
+            print(f"Erro ao capturar descrição do item '{name_remedio}': {e}")
             descricao = 'Sem descrição'
         
         try:
-            nome = h1_text.replace("'", "")
-            insert_imagem_api(nome, prescricao, imagem, descricao, name_remedio)
-            cont += 1
-            print(cont)
-            print("Imagem foi encontrada e cadastrada")
+            nome = name_remedio.replace("'", "")
+            insert_imagem_api(nome, prescricao, imagem, descricao, product_gtin)
         except Exception as e:
             print(f"Erro ao processar o item '{name_remedio}': {e}")            
         finally:
@@ -122,11 +103,12 @@ def pesquisar_remedios_nome(name_remedio, product_gtin):
             chrome.quit()  # Certifique-se de fechar o navegador após um erro
     else:
         print("Imagem foi encontrada e cadastrada")
+        chrome.quit()
 
 # Função para fazer o insert da imagem na API usando o endpoint fornecido
 def insert_imagem_api(nome, prescricao, img, descricao, ean):
     # Código para inserção na API aqui
-    url_insert_api = f"https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao//InsertRaspagem/f_srv_pharmaelevar/e"
+    # url_insert_api = f"https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao//InsertRaspagem/f_srv_pharmaelevar/e"
     body = {
          "nome": nome,
          "prescricao": prescricao,
@@ -137,12 +119,19 @@ def insert_imagem_api(nome, prescricao, img, descricao, ean):
     
     print(body)
     
-    response_insert = requests.post(url_insert_api, json=body) 
+    # response_insert = requests.post(url_insert_api, json=body)
     
-    if response_insert.status_code == 200:
-        print(f"Inserção da imagem para '{ean}' realizada com sucesso!")
-    else:
-        print(f"Falha ao inserir a imagem para '{ean}'. Status code: {response_insert.status_code}")
+    nome_arquivo = "products_founded.txt"
+
+# Salvando os números no arquivo
+    with open(nome_arquivo, "a") as arquivo:
+        objeto = {"nome": nome, "ean": ean}
+        arquivo.write(str(objeto) + "\n")
+    
+    # if response_insert.status_code == 200:
+    #     print(f"Inserção da imagem para '{ean}' realizada com sucesso!")
+    # else:
+    #     print(f"Falha ao inserir a imagem para '{ean}'. Status code: {response_insert.status_code}")
 
 
 
@@ -171,7 +160,7 @@ if objetos_ean:
     for obj in objetos_ean:
         nome = obj.get("nome")  
         ean = obj.get("ean")
-        print(nome, ean)
+        pesquisar_remedios_nome(nome, ean)
     print("EAN'S com erro:", ids_com_erro)  # Exibe os IDs com erro após o loop
 
 else:
