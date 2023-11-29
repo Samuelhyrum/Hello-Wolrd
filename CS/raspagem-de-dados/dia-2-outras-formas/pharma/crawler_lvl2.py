@@ -100,7 +100,7 @@ def pesquisar_remedios_nome(name_remedio, product_gtin):
             with open(nome_arquivo, "a") as arquivo:
                 objeto = {"ean_errado": product_gtin}
                 arquivo.write(str(objeto) + "\n")
-            chrome.quit()  # Certifique-se de fechar o navegador após u
+            chrome.quit() 
     else:
         print("Imagem foi encontrada e cadastrada")
         chrome.quit()
