@@ -105,7 +105,7 @@ def pesquisar_remedios_nome(name_remedio, product_gtin):
         print("Imagem foi encontrada e cadastrada")
         chrome.quit()
 
-# Função para fazer o insert da imagem na API usando o endpoint fornecido
+# Função para fazer o insert da imagem na API usando o endpoint 
 def insert_imagem_api(nome, prescricao, img, descricao, ean):
     # Código para inserção na API aqui
     # url_insert_api = f"https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao//InsertRaspagem/f_srv_pharmaelevar/e"
