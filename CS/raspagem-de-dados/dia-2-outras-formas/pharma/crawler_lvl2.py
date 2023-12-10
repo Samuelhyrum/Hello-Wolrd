@@ -41,7 +41,7 @@ def pesquisar_remedios_nome(name_remedio, product_gtin):
 
     
     try:
-        # Requisição para a página do Mercado Livre com o item pesquisado
+        # Requisição para a página do Mercado Livre co
         chrome.get("https://www.drogariasaopaulo.com.br/")
         sleep(5)
         wait = WebDriverWait(chrome, 10)
