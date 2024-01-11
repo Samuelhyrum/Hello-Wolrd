@@ -21,7 +21,7 @@ def pesquisar_remedios_nome(name_remedio, product_gtin):
     global prescricao
     global descricao
     global imagem
-    global cont  # Adicione esta linha
+    global cont 
 
 
 
