@@ -123,7 +123,6 @@ def insert_imagem_api(nome, prescricao, img, descricao, ean):
 
 url_api = "https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/RetornaEan"
 
-# Requisição GET para a API para obter os produtos sem imagem
 response = requests.get(url_api)
 
 # Verifica se a resposta da API foi bem-sucedida
