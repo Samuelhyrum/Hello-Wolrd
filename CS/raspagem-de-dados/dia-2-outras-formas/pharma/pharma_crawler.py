@@ -125,7 +125,6 @@ url_api = "https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/Retorna
 
 response = requests.get(url_api)
 
-# Verifica se a resposta da API foi bem-sucedida
 if response.status_code == 200:
     # Converte o conteúdo JSON da resposta para um dicionário Python
     data = response.json()
