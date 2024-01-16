@@ -130,7 +130,6 @@ if response.status_code == 200:
     data = response.json()
     # Percorre os itens pesquisados
     for item in data:
-        # Chama a função para pesquisar
         pesquisar_remedios_ean(item)
     print("IDs com erro: '{ids_com_erro}', quantidade de cadastrados corretamente: '{cont}'")  # Exibe os IDs com erro após o loop
 else:
