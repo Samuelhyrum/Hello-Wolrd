@@ -128,7 +128,7 @@ response = requests.get(url_api)
 if response.status_code == 200:
     # Converte o conteúdo JSON da resposta para um dicionário Python
     data = response.json()
-    # Percorre os itens pesquisados
+    # Percorre os itens pesquisado
     for item in data:
         pesquisar_remedios_ean(item)
     print("IDs com erro: '{ids_com_erro}', quantidade de cadastrados corretamente: '{cont}'")  # Exibe os IDs com erro após o loop
