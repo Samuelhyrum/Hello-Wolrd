@@ -126,7 +126,7 @@ url_api = "https://ellenapi.azurewebsites.net//RotinasAjustesImplantacao/Retorna
 response = requests.get(url_api)
 
 if response.status_code == 200:
-    # Converte o conteúdo JSON da resposta para um dicionário 
+    # Converte o conteúdo JSON da resposta para um 
     data = response.json()
     for item in data:
         pesquisar_remedios_ean(item)
