@@ -99,7 +99,6 @@ def pesquisar_remedios_ean(ean_remedio):
         ids_com_erro.append(ean_remedio)
         chrome.quit()
 
-# Função para fazer o insert da imagem na API usando o endpoint fornecido
 def insert_imagem_api(nome, prescricao, img, descricao, ean):
     # Código para inserção na API aqui
     
