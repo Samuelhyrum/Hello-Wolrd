@@ -52,7 +52,6 @@ def pesquisa_ean(product_gtin):
         except Exception as e:
             print(f"Erro ao processar o item '{product_gtin}': {e}")
         
-        # Fecha o navegador
         chrome.quit()
 
         # Nome do arquivo para salvar os números
