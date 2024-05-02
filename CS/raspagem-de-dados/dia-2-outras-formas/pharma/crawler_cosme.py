@@ -134,14 +134,16 @@ nome_arquivo = "cosmeticos.txt"
 
 # Lendo os números do arquivo
 with open(nome_arquivo, "r") as arquivo:
-    dados_json = json.load(arquivo)
+    dados_json = arquivo.read()
 
 # Imprimindo a lista de strings
 # print(numeros)
 if dados_json:
-        # Percorre os itens pesquisados
-    for item in dados_json:
-        print(item)
+    linhas = dados_json.split('\n')
+    
+    # Percorre as linhas
+    for linha in linhas:
+        print(linha)
 else:
     print("A chave 'descrição' não está presente nos dados da API.")
 
