@@ -9,6 +9,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.common.exceptions import NoSuchElementException
+
 
 # Declarar a variável global ids_com_erro
 global ids_com_erro
@@ -21,18 +23,18 @@ cont = 0
 def pesquisar_cosmeticos_ean(ean_cosmetico):
     global prescricao
     global descricao
+    global tipo
     global imagem
     global cont  # Adicione esta linha
 
-    if(ean_cosmetico == ""):
+    if (ean_cosmetico == ""):
         return
-    
-    if(len(ean_cosmetico) > 13):
+
+    if (len(ean_cosmetico) > 13):
         ean_cosmetico = ean_cosmetico.lstrip('0')
 
-
     # Criação de uma instância de navegador utilizando o Chrome
-    user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+    user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
     options = webdriver.ChromeOptions()
     service = ChromeService(executable_path=ChromeDriverManager().install())
     # options.add_argument('--headless=new')
@@ -42,56 +44,85 @@ def pesquisar_cosmeticos_ean(ean_cosmetico):
     options.add_argument('--ignore-ssl-error=yes')
     chrome = webdriver.Chrome(options=options, service=service)
 
-
     try:
         # Requisição para a página do Mercado Livre com o item pesquisado
-        chrome.get(f"https://www.epocacosmeticos.com.br/pesquisa?q={ean_cosmetico}")
-        sleep(3)
+        chrome.get(
+            f"https://www.epocacosmeticos.com.br/pesquisa?q={ean_cosmetico}")
+        sleep(4)
 
         # Encontra o produto, pegar o title e clica no link para expandir
         try:
-            ul_element = chrome.find_element(By.CSS_SELECTOR, "ul.snize-search-results-content")
-            li_elements = ul_element.find_elements(By.TAG_NAME, "li")
-            
-            if(len(li_elements) > 1):
+            div_element = chrome.find_element(By.CLASS_NAME, "shelf-default")
+            li_elements = div_element.find_elements(By.TAG_NAME, "li")
+
+            if (len(li_elements) > 1):
                 raise Exception("Não encontrado o produto correto")
-            
+
             a_link = li_elements[0].find_element(By.TAG_NAME, "a")
-            
-            title_element = li_elements[0].find_element(By.CSS_SELECTOR, "span.snize-title").text
-            
+
             actions = ActionChains(chrome)
             actions.move_to_element(li_elements[0]).click(a_link).perform()
 
-            sleep(4)
+            sleep(3)
 
-            # Pega imagem do produto
             try:
-                div_img = chrome.find_element(By.CLASS_NAME, 'fotorama__img')
-                imagem = div_img.get_attribute('src')
-            except Exception as e:
-                print(f"Erro ao processar o item '{ean_cosmetico}': {e}")
-                imagem = 'Sem imagem'
+                label_elements = chrome.find_elements(By.CSS_SELECTOR, '.group_0 label')
 
-            # Pega descricao do produto
-            try:
-                descricao_element = chrome.find_element(By.CLASS_NAME, 'product.attribute.overview')
-                p_element =  descricao_element.find_element(By.TAG_NAME, 'p')
-                descricao = p_element.text
-            except Exception as e:
-                print(f"Erro ao processar o item '{ean_cosmetico}': {e}")
-                descricao = 'Sem descrição'
+                for label_element in label_elements:
+                    # actions.move_to_element(label_element).click(label_element).perform()
+                    sleep(1)
+                    span_elements = label_element.find_elements(By.TAG_NAME, "span")
+                    class_found = False
+
+                    for span_element in span_elements:
+                        classes = span_element.get_attribute("class")
+                        if "sku_thumb" in classes:
+                            class_found = True
+                        elif "best_price_label" in classes:
+                            class_found = False  # Ignorar a classe "best_price_label"
+                        if class_found:
+                            tipo = "imagem"
+                            print("A classe 'sku_thumb' existe nesta label.")
+                            print(span_element.text)
+                            break
+
+                    if not class_found:
+                        tipo = "descrição"
+                        print("Somente a classe 'name_thumb' existe nesta label.")
+
+
+            except NoSuchElementException:
+                    print("Elemento não encontrado.")
+
+
+
+            # # Pega imagem do produto
+            # try:
+            #     div_img = chrome.find_element(By.CLASS_NAME, 'fotorama__img')
+            #     imagem = div_img.get_attribute('src')
+            # except Exception as e:
+            #     print(f"Erro ao processar o item '{ean_cosmetico}': {e}")
+            #     imagem = 'Sem imagem'
+
+            # # Pega descricao do produto
+            # try:
+            #     descricao_element = chrome.find_element(By.CLASS_NAME, 'product.attribute.overview')
+            #     p_element =  descricao_element.find_element(By.TAG_NAME, 'p')
+            #     descricao = p_element.text
+            # except Exception as e:
+            #     print(f"Erro ao processar o item '{ean_cosmetico}': {e}")
+            #     descricao = 'Sem descrição'
             
-            # Vai fazer o cadastro do produto (refact)
-            try:
-                nome = title_element.replace("'", "")    
-                insert_imagem_api(nome, 'Sem prescrição', imagem, descricao, ean_cosmetico)
-                print(f'nome: {nome} \n prescrição: Sem prescrição \n imagem: {imagem} \n descrição: {descricao} \n ean: {ean_cosmetico}')
-                cont += 1
-                print(cont)
-                print("Imagem foi encontrada e cadastrada")
-            except Exception as e:
-                print(f"Erro ao processar o item '{ean_cosmetico}': {e}")
+            # # Vai fazer o cadastro do produto (refact)
+            # try:
+        
+            #     insert_imagem_api(imagem, descricao, ean_cosmetico)
+            #     # print(f'nome: {nome} \n prescrição: Sem prescrição \n imagem: {imagem} \n descrição: {descricao} \n ean: {ean_cosmetico}')
+            #     cont += 1
+            #     print(cont)
+            #     print("Imagem foi encontrada e cadastrada")
+            # except Exception as e:
+            #     print(f"Erro ao processar o item '{ean_cosmetico}': {e}")
         
         except Exception as e:
             print(f"Erro ao processar o item '{ean_cosmetico}': {e}")
@@ -103,6 +134,8 @@ def pesquisar_cosmeticos_ean(ean_cosmetico):
     
     finally:
         chrome.quit()
+
+# def get_grid_image()
 
 
 # Função para fazer o insert da imagem na API usando o endpoint fornecido
@@ -143,7 +176,7 @@ if dados_json:
     
     # Percorre as linhas
     for linha in linhas:
-        print(linha)
+        pesquisar_cosmeticos_ean(linha)
 else:
     print("A chave 'descrição' não está presente nos dados da API.")
 
