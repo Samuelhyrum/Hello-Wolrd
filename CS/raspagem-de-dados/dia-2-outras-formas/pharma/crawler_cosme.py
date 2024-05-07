@@ -69,7 +69,6 @@ def pesquisar_cosmeticos_ean(ean_cosmetico):
                 label_elements = chrome.find_elements(By.CSS_SELECTOR, '.group_0 label')
 
                 for label_element in label_elements:
-                    # actions.move_to_element(label_element).click(label_element).perform()
                     sleep(1)
                     span_elements = label_element.find_elements(By.TAG_NAME, "span")
                     class_found = False
@@ -82,8 +81,14 @@ def pesquisar_cosmeticos_ean(ean_cosmetico):
                             class_found = False  # Ignorar a classe "best_price_label"
                         if class_found:
                             tipo = "imagem"
+                            actions.move_to_element(label_element).click(label_element).perform()
+                            elemento_li = chrome.find_element(By.CSS_SELECTOR,'.product__gallery--sku__item:nth-child(2)')
+
+
+                            img_element = elemento_li.get_attribute("src")
+
                             print("A classe 'sku_thumb' existe nesta label.")
-                            print(span_element.text)
+                            get_grid_image(label_element, tipo, ean_cosmetico, img_element)
                             break
 
                     if not class_found:
@@ -135,7 +140,23 @@ def pesquisar_cosmeticos_ean(ean_cosmetico):
     finally:
         chrome.quit()
 
-# def get_grid_image()
+def get_grid_image(label, tipo, ean, img):
+    # Encontrar o elemento span com a classe "sku_thumb" para extrair a URL da imagem
+    image_element = label.find_element(By.CSS_SELECTOR, 'span.sku_thumb')
+    image_style = image_element.get_attribute('style')
+    image_url = image_style.split("url(")[1].split(")")[0]
+
+    # Encontrar o elemento span com o itemprop="sku" para extrair o texto "Terra"
+    texto_element = label.find_element(By.CSS_SELECTOR,'span[name="Terra"]')
+    texto_terra = texto_element.text
+    content_value = texto_element.get_attribute('content')
+
+  
+
+    print(image_url, texto_terra, content_value, tipo, ean, img)
+
+
+
 
 
 # Função para fazer o insert da imagem na API usando o endpoint fornecido
