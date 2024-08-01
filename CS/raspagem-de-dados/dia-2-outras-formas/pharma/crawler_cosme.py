@@ -82,6 +82,7 @@ def pesquisar_cosmeticos_ean(ean_cosmetico):
                         if class_found:
                             tipo = "imagem"
                             actions.move_to_element(label_element).click(label_element).perform()
+                            sleep(2)
                             elemento_li = chrome.find_element(By.CSS_SELECTOR,'.product__gallery--sku__item:nth-child(2)')
 
 
